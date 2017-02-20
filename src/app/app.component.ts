@@ -6,10 +6,8 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor (@Inject('labs') private Labs) {}
+  constructor () {}
 
-  newLab(name, author) {
-    this.Labs.addLab(name, author)
-  }
+
 
 }

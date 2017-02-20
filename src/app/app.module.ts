@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import Labs from './labs.service'
+import { ContentComponent } from './content/content.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [{provide: 'labs', useClass: Labs}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
