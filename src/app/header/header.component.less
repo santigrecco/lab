@@ -1,14 +1,49 @@
 @principal: #2980b9;
+@secondary: #3498db;
 
 .header {
   height: 80px;
   background-color: @principal;
   display: flex;
-  padding: 20px;
-  margin-bottom: 20px;
   h1{
     align-self: center;
     margin: 0px;
     color: white;
+  }
+  .navbar.navbar-default {
+    background: transparent;
+    border: transparent;
+    flex: 1;
+    margin: 0px;
+    .container-fluid {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  .nav.navbar-nav {
+    border-radius: 5px;
+    height: 100%;
+    justify-self: center;
+    flex: 1;
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    .active {
+      background-color: @secondary;
+    }
+    li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    li > a {
+      color: white;
+      background-color: transparent;
+
+    }
   }
 }

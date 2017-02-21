@@ -2,20 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router'
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component'
+import { LabsComponent } from './labs/labs.component'
+import { APP_ROUTES } from './app.routes';
+import { SecondaryComponent } from './secondary/secondary.component';
+import { ThirdComponent } from './third/third.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContentComponent
+    LabsComponent,
+    SecondaryComponent,
+    ThirdComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

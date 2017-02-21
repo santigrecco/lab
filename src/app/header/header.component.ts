@@ -12,5 +12,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  isActive(route) {
+    return true
+  }
 }

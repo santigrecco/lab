@@ -1,3 +1,12 @@
-<header class="header md-col-12">
-  <h1>Deloitte Labs</h1>
+<header class="header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <h1>Deloitte Labs</h1>
+      <ul class="nav navbar-nav">
+        <li [ngClass]="{'active': isActive('labs')}"><a href="#"> Labs </a></li>
+        <li [ngClass]="{'active': isActive('secondary')}"><a href="/secondary"> Secondary </a></li>
+        <li [ngClass]="{'active': isActive('third')}"><a href="/third">  Third </a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
