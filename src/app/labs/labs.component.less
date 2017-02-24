@@ -1,0 +1,81 @@
+@principal: #2980b9;
+
+.labs {
+  hr {
+    border-color: grey;
+    border-width: 0.2px;
+  }
+  ul{
+    list-style: none;
+  }
+  width: 100%;
+  height: 90vh;
+  .create-lab {
+    padding-top: 50px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    .create-lab-btn {
+      position: absolute;
+      left: 75%;
+      background-color: transparent;
+      border: 2px solid @principal;
+      border-radius: 4px;
+      color: @principal;
+      padding: 5px 10px;
+    }
+  }
+  .show-labs {
+    padding-left: 50px;
+    padding-top: 10px;
+    .labs-list {
+      .list {
+        transition: 1s;
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        overflow-x: hidden;
+        .lab {
+          margin-right: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img {
+            height: 200px;
+            width: 400px;
+          }
+        }
+
+      }
+    }
+  }
+
+  .proposed-labs {
+    .show-labs;
+  }
+
+  .slide-arrow {
+    width: 80px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slide-arrow-back {
+    width: 80px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

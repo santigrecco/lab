@@ -7,5 +7,5 @@ import { Routes } from '@angular/router'
 export const APP_ROUTES:Routes = [
   {path: '', component: LabsComponent},
   {path: 'secondary', component: SecondaryComponent},
-  {path: 'third', component: ThirdComponent} 
+  {path: 'third', component: ThirdComponent}
 ]

@@ -10,6 +10,7 @@ import { LabsComponent } from './labs/labs.component'
 import { APP_ROUTES } from './app.routes';
 import { SecondaryComponent } from './secondary/secondary.component';
 import { ThirdComponent } from './third/third.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { ThirdComponent } from './third/third.component';
     HeaderComponent,
     LabsComponent,
     SecondaryComponent,
-    ThirdComponent
+    ThirdComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(APP_ROUTES)
+    // RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

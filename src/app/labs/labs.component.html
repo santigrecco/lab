@@ -1,3 +1,28 @@
 <div class="labs">
-
+  <div class="create-lab">
+    <button class="create-lab-btn">
+      CREATE LAB
+    </button>
+  </div>
+  <section class="proposed-labs">
+    <h2>
+      Proposed Labs
+    </h2>
+    <hr>
+    <div class="labs-list">
+      <ul class="list" #list >
+        <div *ngIf="isScrollableLeft(list)" class="slide-arrow-back" (click) = "slideBack()">
+          <img src="assets/back.png" alt="back">
+        </div>
+        <li *ngFor="let lab of labs" class="lab" >
+          <img [src]="lab.img" alt="">
+          <b>{{lab.title}}</b>
+          <p>{{lab.description}}</p>
+        </li>
+        <div *ngIf="isScrollableRight(list)" class="slide-arrow" (click) = "slideNext()">
+          <img src="assets/next.png" alt="next">
+        </div>
+      </ul>
+    </div>
+  </section>
 </div>
