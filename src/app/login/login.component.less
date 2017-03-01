@@ -1,55 +1,131 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+  font-family: "Open Sans";
+  src: url('https://fonts.googleapis.com/css?family=Open+Sans');
+}
 .login {
+  font-family: 'Open Sans', sans-serif;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   .login-background {
     flex: 1;
-    padding: 40px;
+    height: 25px;
+    width: 75px;
     display: flex;
-    height: ~"calc(100vh - 120px)";
-    background: url('assets/background.png');
+    // height: ~"calc(100% - 160px)";
+    height: 75%;
+    background: url('assets/background.jpg');
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    background-position: center;
     flex-direction: column;
     text-align: center;
     align-items: center;
+
+    img {
+      margin: 20px;
+    }
   }
 
   .login-form {
-    width: 300px;
+    width: 320px;
     h3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 24px;
+      height: 35px;
+      padding: 0px;
+      margin: 0px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      margin: 0px;
-      padding: 10px 20px 10px 20px;
       border-bottom: 1px solid;
-      background-color: #2980b9;
+      background: rgba(0,118,168,1);
+      background: -moz-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,118,168,1)), color-stop(100%, rgba(0,51,102,1)));
+      background: -webkit-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+      background: -o-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+      background: -ms-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+      background: linear-gradient(to bottom, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0076a8', endColorstr='#003366', GradientType=0 );
       color: white;
       border-color: transparent;
     }
     .form{
-      background-color: rgba(256, 256, 256, 0.9);
-      padding: 20px;
+      opacity: 30%;
+      background-color: fade(#E7EAEC, 85%);
+      padding: 20px 20px 10px 20px;
       display: flex;
       flex-direction: column;
       p {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        input {
+          height: 18px;
+          width: 180px;
+          font-size: 10px;
+          color: black;
+          background-color: #CCCCCC;
+          border: 0px;
+          text-indent: 5px;
+          &[type="password"] {
+            font-size: 18px;
+          }
+        }
+        label {
+          color: #3FA9F5;
+          font-size: 14px;
+        }
       }
       .sign-in{
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-around;
         .sign-in-btn {
-          width: 100px;
+          left: 46px;
+          position: relative;
+          height: 20px;
+          width: 70px;
+          padding: 0px;
+          font-size: 13px;
+          color: white;
+          background: rgba(165,201,0,1);
+          background: -moz-linear-gradient(top, rgba(165,201,0,1) 0%, rgba(122,201,67,1) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(165,201,0,1)), color-stop(100%, rgba(122,201,67,1)));
+          background: -webkit-linear-gradient(top, rgba(165,201,0,1) 0%, rgba(122,201,67,1) 100%);
+          background: -o-linear-gradient(top, rgba(165,201,0,1) 0%, rgba(122,201,67,1) 100%);
+          background: -ms-linear-gradient(top, rgba(165,201,0,1) 0%, rgba(122,201,67,1) 100%);
+          background: linear-gradient(to bottom, rgba(165,201,0,1) 0%, rgba(122,201,67,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5c900', endColorstr='#7ac943', GradientType=0);
         }
       }
-      .error {
-        color: red;
+      .error-container {
+        display: flex;
+        justify-content: space-around;
+        height: 25px;
+        .error {
+          margin: 5px 0px 5px 0px;
+          color: #FF0000;
+          font-size: 10px;
+          margin-left: 100px;
+          text-align: left;
+        }
       }
     }
+  }
+  footer{
+    color: #999999;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

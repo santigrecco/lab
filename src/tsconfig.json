@@ -1,4 +1,11 @@
 {
+  "compileOnSave": false,
+  "filesGlob": [
+    "**/*.ts",
+    "**/*.tsx",
+    "!./src/typings/**",
+    "!./node_modules/**"
+  ],
   "compilerOptions": {
     "baseUrl": "",
     "declaration": false,

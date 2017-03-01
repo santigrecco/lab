@@ -1,6 +1,6 @@
 <div class="login">
   <section class="login-background">
-    <h1><b>Deloitte</b> labs</h1>
+    <img src="assets/deloitte-labs-logo.png" alt="Deloitte Labs">
     <div class="login-form">
       <div class="form-header">
         <h3><b>Log In</b></h3>
@@ -9,7 +9,7 @@
         <form action="" class="form">
           <p>
             <label for="">
-              Email
+              E-mail
             </label>
             <input type="text">
           </p>
@@ -17,18 +17,21 @@
             <label for="">
               Password
             </label>
-            <input type="text">
+            <input type="password">
           </p>
           <div class="sign-in">
-            <button (click)="signIn()" class="btn btn-success sign-in-btn">
+            <button (click)="signIn()" class="btn sign-in-btn">
               Sign In
             </button>
           </div>
-          <span *ngIf="error" class="error">
-            Algun error
-          </span>
+          <div  class="error-container">
+            <span *ngIf="error" class="error">
+              Not a member? click <a href="#">here</a> to make a request
+            </span>
+          </div>
         </form>
       </div>
     </div>
   </section>
+  <footer class="footer">© Creted by Globant & Deloitte</footer>
 </div>
