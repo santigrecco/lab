@@ -11,6 +11,7 @@ import { APP_ROUTES } from './app.routes';
 import { SecondaryComponent } from './secondary/secondary.component';
 import { ThirdComponent } from './third/third.component';
 import { LoginComponent } from './login/login.component';
+import { ProposeLabComponent } from './propose-lab/propose-lab.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     LabsComponent,
     SecondaryComponent,
     ThirdComponent,
-    LoginComponent
+    LoginComponent,
+    ProposeLabComponent
   ],
   imports: [
     BrowserModule,

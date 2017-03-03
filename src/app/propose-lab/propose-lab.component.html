@@ -1,0 +1,46 @@
+
+<div class="propose-lab">
+  <h3>Propose Lab </h3>
+  <hr/>
+  <form action="" class="form">
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="image">
+        Image
+      </label>
+      <div class="file-group">
+        <input type="text" [value]="fileName" name="image-field" readonly class="image-field" >        
+        <label for="image" (click)="browseClick()">
+          Browse
+        </label>
+      </div>
+      
+      <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
+    </div>
+    <div>
+      <label for="description">
+        Description
+      </label>
+      <textarea name="description" rows="5" id="description" name="description"></textarea>
+    </div>
+    <div>
+      <label for="tags">
+        Tags
+      </label>
+      <input type="text" id="tags" name="tags">
+    </div>
+    <div>
+      <button>
+        Cancel
+      </button>
+      <button>
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

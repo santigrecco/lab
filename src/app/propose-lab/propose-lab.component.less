@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@primary: #003366;
+@secondary: #999999;
+@border-color: #666666;
+
+@general-padding: 60px;
+
+.propose-lab {
+  
+  font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
+  padding: @general-padding 0px @general-padding @general-padding;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    color: @primary;
+    font-weight: bold;
+  }
+  hr {
+    border-color: @primary;
+    // border-width: 0.25px;
+    width: 100%;
+  }
+
+  .form {
+    align-self: center;
+    width: 580px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px 60px 15px 60px;
+    
+    div{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px; 
+      label {
+      color: @primary;
+      font-size: 21px;
+      font-family: Verdana, Geneva, sans-serif;
+      font-weight: 300;
+      cursor: pointer;
+      }
+      input {
+        width: 280px;
+        height: 25px;
+        border: 1px solid @border-color;
+
+      }
+      
+      textarea {
+        width: 280px;
+        resize: none;
+        border: 1px solid @border-color;
+      }  
+
+      #image {
+        display: none;
+      }
+
+      .file-group {
+        input {
+          width: 220px;
+
+        }
+        label {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          width: 60px;
+          font-size: 9.3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 25px;
+          border: 1px solid;
+          border-left: none;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-color: @border-color;
+          background: rgba(255,255,255,1);
+          background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(204,204,204,1)));
+          background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+          background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+          background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+          background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
+          
+          &:hover{
+            background:#cccccc;
+            color: @primary;
+          }  
+        }
+    
+      }
+
+    }
+
+    
+  }
+
+}

@@ -1,8 +1,10 @@
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@font-face {
-  font-family: "Open Sans";
-  src: url('https://fonts.googleapis.com/css?family=Open+Sans');
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@smartphone: ~"screen and (max-height: 670px) and (max-width: 500px)";
+
+// @font-face {
+//   font-family: "Open Sans";
+//   src: url('https://fonts.googleapis.com/css?family=Open+Sans');
+// }
 .login {
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
@@ -127,5 +129,33 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+
+@media @smartphone{
+  .login {
+    overflow-x: scroll;
+    align-items: flex-start;
+    .login-background {
+      width: 100%;
+      height: 90%;
+      img {
+        width: 70%;
+      }
+      .login-form {
+        width: 80%;
+        height: 40%;
+        .form {
+          font-size: 2em;
+          input {
+            width: 60%;
+          }
+        }
+      }
+    }
+    footer {
+      font-size: 1rem;
+    }
   }
 }
