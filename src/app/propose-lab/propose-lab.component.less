@@ -20,8 +20,19 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
 
 }
+.red-gradient {
+  background: rgba(187,62,66,1);
+  background: -moz-linear-gradient(top, rgba(187,62,66,1) 0%, rgba(157,41,53,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(187,62,66,1)), color-stop(100%, rgba(157,41,53,1)));
+  background: -webkit-linear-gradient(top, rgba(187,62,66,1) 0%, rgba(157,41,53,1) 100%);
+  background: -o-linear-gradient(top, rgba(187,62,66,1) 0%, rgba(157,41,53,1) 100%);
+  background: -ms-linear-gradient(top, rgba(187,62,66,1) 0%, rgba(157,41,53,1) 100%);
+  background: linear-gradient(to bottom, rgba(187,62,66,1) 0%, rgba(157,41,53,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb3e42', endColorstr='#9d2935', GradientType=0 );
+}
 
 .propose-lab {
+  min-height: ~'calc(100vh - 80px)';
   *:focus {
      outline: "1px solid #3498db"
   }
@@ -199,10 +210,11 @@
     color: @secondary;
     font-size: 12px;
     font-family: 'Open Sans', sans-serif;
-    position: relative;
-    margin: 40px 0 10px 0;
+    position: fixed;
+    bottom: 20px;
     display: flex;
     justify-content: center;
+    width: calc(~'100%' - @general-padding)
   }
 
   .breadcrumb {
@@ -229,22 +241,51 @@
     z-index: 1000;
     width: 100%;
     height: 100vh;
-    background: fade(black, 70%);
-    color: red;
+    background: fade(black, 50%);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     position: absolute;
     .error-message {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       width: 400px;
-      height: 200px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: white;
+      -webkit-box-shadow: 0px 10px 41px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 10px 41px 1px rgba(0,0,0,0.75);
+      box-shadow: 0px 10px 41px 1px rgba(0,0,0,0.75);
+      .error-header {
+        .red-gradient;
+        height: 12px;
+        width: 100%;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        color: #9E4B56;
+        padding: 20px;
+        button {
+          .red-gradient;
+          align-self: center;
+          color: white;
+          height: 30px;
+          width: 100px;
+          margin-top: 20px;
+          border: 1px solid #9E4B56;
+          border-radius: 5px;
+        }
+      }
     }
+  }
+
+  .incomplete-field {
+    border: 1px solid red !important;
   }
 }
 
@@ -292,6 +333,11 @@
         justify-content: center;
 
       }
+    }
+
+    .error-message {
+      width: 80%;
+      font-size: 1.2rem;
     }
   }
 
