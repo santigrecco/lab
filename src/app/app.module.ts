@@ -12,6 +12,9 @@ import { SecondaryComponent } from './secondary/secondary.component';
 import { ThirdComponent } from './third/third.component';
 import { LoginComponent } from './login/login.component';
 import { ProposeLabComponent } from './propose-lab/propose-lab.component';
+import { EditLabComponent } from './edit-lab/edit-lab.component';
+import { HomeComponent } from './home/home.component';
+import { ComponentHeaderComponent } from './component-header/component-header.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ProposeLabComponent } from './propose-lab/propose-lab.component';
     SecondaryComponent,
     ThirdComponent,
     LoginComponent,
-    ProposeLabComponent
+    ProposeLabComponent,
+    EditLabComponent,
+    HomeComponent,
+    ComponentHeaderComponent
   ],
   imports: [
     BrowserModule,

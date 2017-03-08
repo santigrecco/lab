@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@smartphone: ~"screen and (max-height: 670px) and (max-width: 500px)";
+
+@primary: #003366;
+@secondary: #999999;
+@border-color: #666666;
+
+@general-padding: 80px;
+
+.component-header {
+  font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
+  padding: 0px @general-padding 0px @general-padding;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    color: @primary;
+    padding-left: 20px;
+    font-weight: bold;
+    margin: 0px;
+    &.no-breadcrumb {
+      margin-top: 60px;
+    }
+  }
+  hr {
+    border-color: @primary;
+    // border-width: 0.25px;
+    width: 100%;
+    margin: 10px;
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 12px;
+    color: @secondary;
+    padding-left: 165px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    a {
+      color: @primary;
+      text-decoration: none;
+    }
+  }
+
+}

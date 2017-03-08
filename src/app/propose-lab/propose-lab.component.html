@@ -1,46 +1,65 @@
 
 <div class="propose-lab">
-  <h3>Propose Lab </h3>
+    <div class="error" *ngIf="error">
+      <div class="error-message">
+        <h4>error</h4>
+      </div>
+    </div>
+    <span class="breadcrumb">
+      <a href="/labs">Labs</a> / Propose Lab
+    </span>
+    <h3>Propose Lab </h3>
+
   <hr/>
   <form action="" class="form">
     <div>
-      <label for="name">
-        Name
+      <label for="name" class="input-label">
+        Name <i>*</i>
       </label>
-      <input type="text" id="name" name="name">
+      <input type="text" [(ngModel)]="name"  id="name" name="name">
     </div>
     <div>
-      <label for="image">
+      <label for="image" class="input-label">
         Image
       </label>
       <div class="file-group">
-        <input type="text" [value]="fileName" name="image-field" readonly class="image-field" >        
+        <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" >
         <label for="image" (click)="browseClick()">
           Browse
         </label>
       </div>
-      
+
       <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
     </div>
     <div>
-      <label for="description">
-        Description
+      <label for="description" class="input-label">
+        Description <i>*</i>
       </label>
-      <textarea name="description" rows="5" id="description" name="description"></textarea>
+      <textarea name="description" [(ngModel)]="description" rows="5" id="description" name="description"></textarea>
     </div>
     <div>
-      <label for="tags">
-        Tags
+      <label for="tags" class="input-label">
+        Tags <i>*</i>
       </label>
-      <input type="text" id="tags" name="tags">
+      <div class="tags">
+        <input type="text" id="tags" #inputTag name="tags" (keypress)="addTag($event, inputTag)">
+         <ul *ngIf="tagsArray" class="tags-list">
+           <li *ngFor="let tag of tagsArray">
+             {{tag}} <img src="assets/close-cross.png" alt="X" (click)="removeTag(tag)">
+           </li>
+         </ul>
+      </div>
     </div>
-    <div>
-      <button>
+    <div class="buttons">
+      <button class="cancel" >
         Cancel
       </button>
-      <button>
+      <button class="submit" (click)="submit()">
         Submit
       </button>
     </div>
   </form>
+  <footer>
+    © Created by Globant & Deloitte
+  </footer>
 </div>

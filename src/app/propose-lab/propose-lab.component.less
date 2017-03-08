@@ -1,26 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@smartphone: ~"screen and (max-height: 670px) and (max-width: 500px)";
+
 @primary: #003366;
 @secondary: #999999;
 @border-color: #666666;
 
-@general-padding: 60px;
+@general-padding: 40px;
+
+
+
+.gradient {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(204,204,204,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
+
+}
 
 .propose-lab {
-  
+  *:focus {
+     outline: "1px solid #3498db"
+  }
+  input {
+    font-size: 12px;
+  }
+  .gradient;
   font-family: 'Open Sans', sans-serif;
-  background-color: transparent;
-  padding: @general-padding 0px @general-padding @general-padding;
+  padding: 0px 0px 0px @general-padding;
   display: flex;
   flex-direction: column;
   h3 {
     color: @primary;
     font-weight: bold;
+    margin: 0px;
+    margin-left: 10px;
   }
   hr {
     border-color: @primary;
-    // border-width: 0.25px;
-    width: 100%;
+    width: 90%;
+    margin: 10px;
   }
+
 
   .form {
     align-self: center;
@@ -29,18 +53,24 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    min-height: 400px;
     padding: 15px 60px 15px 60px;
-    
+
     div{
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px; 
+      margin-bottom: 10px;
       label {
-      color: @primary;
-      font-size: 21px;
-      font-family: Verdana, Geneva, sans-serif;
-      font-weight: 300;
-      cursor: pointer;
+        color: @primary;
+        font-size: 21px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: 300;
+        cursor: pointer;
+        i {
+          font-size: 15px;
+          color: red;
+
+        }
       }
       input {
         width: 280px;
@@ -48,12 +78,12 @@
         border: 1px solid @border-color;
 
       }
-      
+
       textarea {
         width: 280px;
         resize: none;
         border: 1px solid @border-color;
-      }  
+      }
 
       #image {
         display: none;
@@ -62,9 +92,9 @@
       .file-group {
         input {
           width: 220px;
-
         }
         label {
+          .gradient;
           font-family: 'Open Sans', sans-serif;
           font-weight: 600;
           width: 60px;
@@ -78,26 +108,192 @@
           border-top-right-radius: 5px;
           border-bottom-right-radius: 5px;
           border-color: @border-color;
-          background: rgba(255,255,255,1);
-          background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(204,204,204,1)));
-          background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-          background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-          background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-          background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
-          
+
           &:hover{
             background:#cccccc;
             color: @primary;
-          }  
+          }
         }
-    
       }
+      .tags {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        &:focus{
+          outline: 1px solid inherit;
+        }
 
+        .tags-list {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 10px;
+          padding-left: 5px;
+          background-color: #E7E7E7;
+          align-items: center;
+          li {
+            margin: 5px;
+            padding: 2px;
+            font-size: 12px;
+            color: white;
+            background-color: #A8A8A8;
+            img {
+              width: 8px;
+              height: 8px;
+              margin-left: 2px;
+              cursor: pointer;
+            }
+          }
+        }
+        input {
+          width: 100%;
+          height: 25px;
+        }
+      }
     }
 
-    
+    .buttons {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .big-button {
+          height: 40px;
+          width: 134px;
+          font-size: 17.5px;
+          font-weight: bold;
+          border-radius: 3px;
+          border: 1px solid;
+        }
+        .cancel {
+          .big-button;
+          .gradient;
+          border-color:  #808080 ;
+          margin-right: 12px;
+          &:hover {
+          //  background: lighten(@secondary, 10%);
+            background: fade(@secondary, 80%);
+          }
+        }
+        .submit {
+          .big-button;
+          background: rgba(0,118,168,1);
+          background: -moz-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,118,168,1)), color-stop(100%, rgba(0,51,102,1)));
+          background: -webkit-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+          background: -o-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+          background: -ms-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+          background: linear-gradient(to bottom, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0076a8', endColorstr='#003366', GradientType=0 );
+          color: white;
+          border-color: @primary;
+          &:hover {
+            background: fade(@primary, 80%);
+          }
+        }
+      }
+    }
+
+  footer {
+    color: @secondary;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    margin: 40px 0 10px 0;
+    display: flex;
+    justify-content: center;
   }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 12px;
+    color: @secondary;
+    padding-left: 165px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    a {
+      color: @primary;
+      text-decoration: none;
+    }
+  }
+
+  input, textarea {
+    text-indent: 5px;
+  }
+  .error {
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    background: fade(black, 70%);
+    color: red;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    .error-message {
+      width: 400px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+    }
+  }
+}
+
+@media @smartphone {
+  .propose-lab {
+    padding: 0px;
+    hr {
+      margin-bottom: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+    }
+    h3 {
+      font-size: 2em;
+    }
+    .breadcrumb {
+      padding-left: 0px;
+    }
+    .form {
+      width: 100%;
+      padding: 5px;
+      div {
+        width: 90%;
+        display: flex;
+        // justify-content: space-between;
+        font-size: 1em;
+        input, textarea, .file-group, .tags {
+          width: 60%;
+        }
+        .file-group {
+          input {
+            width: ~"calc(100% - 40px)";
+          }
+          label {
+            width: 40px;
+          }
+        }
+
+        .input-label {
+          font-size: 1em;
+        }
+      }
+
+      .buttons {
+        justify-content: center;
+
+      }
+    }
+  }
+
 
 }
