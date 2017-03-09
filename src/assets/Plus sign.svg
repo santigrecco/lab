@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22.03 17.21">
+    <defs>
+        <style>
+            .cls-1{
+                fill:url(#linear-gradient);
+                <!--fill: red;-->
+            }
+            .cls-1:hover {
+                fill: black;
+            }
+            .cls-2{
+                fill:none;
+                stroke:gray;
+                stroke-miterlimit:10;
+                stroke-width:0.5px;
+            }
+
+        </style>
+        
+        <linearGradient id="linear-gradient" x1="11.02" y1="16.96" x2="11.02" y2="0.25" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ccc"/><stop offset="0.3" stop-color="#d0d0d0"/><stop offset="0.56" stop-color="#dadada"/><stop offset="0.82" stop-color="#ededed"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><title>Asset 13Plus sign</title><g id="Layer_2" data-name="Layer 2"><g id="Manager"><rect class="cls-1" x="0.25" y="0.25" width="21.53" height="16.71" rx="4.63" ry="4.63"/><rect class="cls-2" x="0.25" y="0.25" width="21.53" height="16.71" rx="4.63" ry="4.63"/><path d="M11.66,3.28V8h4.52v1.2H11.66v4.74H10.38V9.18H5.85V8h4.52V3.28Z"/></g></g>
+
+    
+</svg>

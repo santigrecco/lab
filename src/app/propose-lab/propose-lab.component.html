@@ -18,7 +18,7 @@
 
   <hr/>
   <form action="" class="form">
-    <div>
+    <div >
       <label for="name" class="input-label">
         Name <i>*</i>
       </label>
@@ -50,8 +50,11 @@
         Tags <i>*</i>
       </label>
       <div class="tags">
-        <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}"
-        (keypress)="addTag($event, inputTag)">
+        <div class="tags-input">
+          <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}"
+            (keypress)="addTag($event, inputTag)">
+          <button>+</button>
+        </div>
          <ul *ngIf="tagsArray" class="tags-list">
            <li *ngFor="let tag of tagsArray">
              {{tag}} <img src="assets/close-cross.png" alt="X" (click)="removeTag(tag)">
@@ -68,7 +71,5 @@
       </button>
     </div>
   </form>
-  <footer>
-    © Created by Globant & Deloitte
-  </footer>
+  
 </div>

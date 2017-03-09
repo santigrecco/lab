@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
-@smartphone: ~"screen and (max-height: 670px) and (max-width: 500px)";
+@smartphone: ~"screen and (max-height: 670px), screen and (max-width: 750px)";
 
 @primary: #003366;
 @secondary: #999999;
@@ -33,17 +33,18 @@
 
 .propose-lab {
   min-height: ~'calc(100vh - 80px)';
+  .gradient;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0px 0px @general-padding @general-padding;
+  display: flex;
+  flex-direction: column;
   *:focus {
      outline: "1px solid #3498db"
   }
   input {
     font-size: 12px;
   }
-  .gradient;
-  font-family: 'Open Sans', sans-serif;
-  padding: 0px 0px 0px @general-padding;
-  display: flex;
-  flex-direction: column;
+  
   h3 {
     color: @primary;
     font-weight: bold;
@@ -156,10 +157,29 @@
             }
           }
         }
-        input {
+        .tags-input {
+          position: relative;
           width: 100%;
-          height: 25px;
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            right: 5px;
+            cursor: pointer;
+     
+            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          input {
+            width: 100%;
+            height: 25px;
+          }    
         }
+        
       }
     }
 
@@ -206,16 +226,14 @@
       }
     }
 
-  footer {
-    color: @secondary;
-    font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
-    position: fixed;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    width: calc(~'100%' - @general-padding)
-  }
+  // footer {
+  //   color: @secondary;
+  //   font-size: 12px;
+  //   font-family: 'Open Sans', sans-serif;
+  //   display: flex;
+  //   justify-content: center;
+  //   width: calc(~'100%' - @general-padding)
+  // }
 
   .breadcrumb {
     display: flex;
@@ -334,11 +352,14 @@
 
       }
     }
-
-    .error-message {
-      width: 80%;
-      font-size: 1.2rem;
+    .error {
+      .error-message {
+        width: 80%;
+        font-size: 1.2rem;
+        height: 150px;
+      } 
     }
+    
   }
 
 
