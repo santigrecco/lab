@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
-@smartphone: ~"screen and (max-height: 670px), screen and (max-width: 750px)";
+@smartphone: ~"screen and (max-width: 750px)";
 
 @primary: #003366;
 @secondary: #999999;
@@ -35,7 +35,7 @@
   min-height: ~'calc(100vh - 80px)';
   .gradient;
   font-family: 'Open Sans', sans-serif;
-  padding: 0px 0px @general-padding @general-padding;
+  padding: 0px @general-padding @general-padding @general-padding;
   display: flex;
   flex-direction: column;
   *:focus {
@@ -53,7 +53,7 @@
   }
   hr {
     border-color: @primary;
-    width: 90%;
+    width: 100%;
     margin: 10px;
   }
 
