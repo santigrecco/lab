@@ -52,8 +52,10 @@
       <div class="tags">
         <div class="tags-input">
           <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}"
-            (keypress)="addTag($event, inputTag)">
-          <button>+</button>
+            (enter)="addTag(inputTag)">
+          <button (click)="addTag(inputTag)" >
+              <img src="assets/Plus sign.svg" />
+          </button>
         </div>
          <ul *ngIf="tagsArray" class="tags-list">
            <li *ngFor="let tag of tagsArray">
@@ -63,7 +65,8 @@
       </div>
     </div>
     <div class="buttons">
-      <button class="cancel" >
+      <!--when it's clicked it should redirect to /labs route-->
+      <button class="cancel">
         Cancel
       </button>
       <button class="submit" (click)="submit()">

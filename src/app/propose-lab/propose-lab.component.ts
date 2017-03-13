@@ -25,13 +25,14 @@ export class ProposeLabComponent implements OnInit {
    browseClick() {
      this.fileName = '';
    }
-   addTag(event, input) {
+   addTag(input) {
      const array = this.tagsArray.map(el=>el.toLowerCase());
      const { value } = input;
-     if( event.key === 'Enter' && value.length > 0 && array.indexOf(value.toLowerCase()) === -1) {
+     if(  value.length > 0 && array.indexOf(value.toLowerCase()) === -1) {
        this.tagsArray.push(input.value);
        input.value = '';
-     }
+    } 
+
    }
    removeTag(tag) {
      const index = this.tagsArray.indexOf(tag);
@@ -48,5 +49,6 @@ export class ProposeLabComponent implements OnInit {
    errorAccept() {
      this.error = false;
    }
+   
 
 }
