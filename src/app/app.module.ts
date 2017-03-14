@@ -27,7 +27,8 @@ import { ComponentHeaderComponent } from './component-header/component-header.co
     ProposeLabComponent,
     EditLabComponent,
     HomeComponent,
-    ComponentHeaderComponent
+    ComponentHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
