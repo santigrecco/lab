@@ -63,8 +63,8 @@
   }
   .content {
     background-color: red;
-    height: 60vh;
-    padding: 6%;
+    height: ~'calc(75vh - 80px)';
+    padding: 5%;
     background: url('assets/home-background.jpg');
     background-repeat: none;
     background-size: cover;
@@ -76,7 +76,8 @@
       margin-left: 32px;
       color: white;
       &:hover {
-        opacity: 0.7;
+
+        background: darken(@primary, 5%);
       }
     }
   } 
