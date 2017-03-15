@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +6,24 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private route:ActivatedRoute) {
+  @Input() rank;
+  links: Object = {
+    labOwner:[
+      {name: 'Requests', path: '/requests'},
+      {name: 'Reports', path: '/reports'}
+    ],
+    manager: [
+      {name: 'Users', path: '/users'},
+      {name: 'Requests', path: '/requests'},
+      {name: 'Tags', path: '/tags'},
+      {name: 'Reports', path: '/reports'}
+    ]
   }
+    
+
+  constructor() { }
 
   ngOnInit() {
   }
 
-  isActive(route) {
-    return true;
-  }
-
-  click() {
-    console.log(this.route.pathFromRoot);
-  }
 }

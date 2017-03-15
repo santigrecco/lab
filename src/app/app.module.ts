@@ -28,13 +28,14 @@ import { ComponentHeaderComponent } from './component-header/component-header.co
     EditLabComponent,
     HomeComponent,
     ComponentHeaderComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    // RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

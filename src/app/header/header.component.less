@@ -1,51 +1,48 @@
-@principal: #2980b9;
-@secondary: #3498db;
+
 
 .header {
-  height: 80px;
-  background-color: @principal;
-  display: flex;
-  h1{
-    align-self: center;
     margin: 0px;
-    color: white;
-  }
-  .navbar.navbar-default {
-    background: transparent;
-    border: transparent;
-    flex: 1;
-    margin: 0px;
-    .container-fluid {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      height: 100%;
-      position: relative;
+    padding: 0px;
+    height: 80px;
+    width: 100%;
+    background: url('assets/blue header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    display: flex;
+    align-items: center;
+    .logo-container {
+        flex: 1;    
+        display: flex;
+        .logo {
+            width: 150px;
+            height: 70px;
+            margin-left: 40px;
+        }
     }
-  }
-
-  .nav.navbar-nav {
-    border-radius: 5px;
-    height: 100%;
-    justify-self: center;
-    flex: 1;
-    position: absolute;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    .active {
-      background-color: @secondary;
+    
+    .nav {    
+        flex: 1,5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        ul {
+          padding: 0px;
+          margin: 0px;
+          list-style: none;
+          display: flex;
+          li {
+              margin: 0px 3px 0px 3px;
+              color: white;
+          }  
+        }
     }
-    li {
-      height: 100%;
-      display: flex;
-      align-items: center;
+    .right-panel {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        display: flex;
     }
-    li > a {
-      color: white;
-      background-color: transparent;
-      &.active {
-        color: red;
-      }
-    }
-  }
 }

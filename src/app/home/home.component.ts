@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   backgroundImage: String; 
-  @Input() manager: Boolean;
-  
-  constructor() { }
+  @Input() rank;
+  manager:Boolean =  this.rank === 'manager';
 
-  ngOnInit() { }
+  constructor(private router:ActivatedRoute) {
+    
+   }
+
+  ngOnInit() {}
 
   
 }

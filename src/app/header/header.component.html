@@ -1,12 +1,34 @@
-<header class="header">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <h1>Deloitte Labs</h1>
-      <ul class="nav navbar-nav">
-        <!-- <li routerLinkActive="active"><a [routerLink]="['/']"> Labs </a></li>
-        <li routerLinkActive="active"><a [routerLink]="['secondary']"> Secondary </a></li>
-        <li routerLinkActive="active"><a [routerLink]="['third']">  Third </a></li> -->
-      </ul>
+
+<div class="header container-fluid">
+    <div class="logo-container">
+        <img src="assets/logo.svg" alt="DeloitteLabs" class="logo">
     </div>
-  </nav>
-</header>
+    <nav class="nav">
+        <ul [ngSwitch]="rank">
+            <li>
+                <a routerLink = "/home" class="btn">Home</a>
+            </li>
+            <li>
+                <a routerLink = "/labs" class="btn">Labs</a>
+            </li>
+            <li *ngSwitchCase ="!manager">
+                <a routerLink = "/profile" class="btn">Profile</a>
+            </li>
+            <ng-container *ngSwitchCase ="manager">
+                <li  *ngFor="let link of links.manager">
+                    <a routerLink = "/login" class="btn">{{link.name}}</a>
+                </li>
+            </ng-container>
+            
+             
+        </ul>
+    </nav>
+    <div class="right-panel">
+        <button class="btn btn-default">
+            button1
+        </button>
+        <button class="btn btn-default">
+            button2
+        </button>
+    </div>
+</div>

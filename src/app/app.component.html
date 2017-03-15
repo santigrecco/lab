@@ -1,13 +1,15 @@
-<!-- <app-header></app-header>
-<router-outlet class="container"></router-outlet> -->
-<header></header>
-<div class="container">
+<app-header *ngIf="header()" [rank]="manager"></app-header>
+<router-outlet class="container"></router-outlet>
 
-  <!--<app-propose-lab></app-propose-lab>-->
-  <!-- <app-login></app-login> -->
-  <!-- <app-edit-lab></app-edit-lab> -->
-   <app-home [manager]="true"></app-home> 
-  <footer>
+<footer>
     <img src="assets/Copyright icon.svg" alt="©"> Created by Globant & Deloitte
-  </footer>
-</div>
+</footer>
+
+<!--<div class="container">
+
+  <app-propose-lab></app-propose-lab>
+   <app-login></app-login> 
+   <app-edit-lab></app-edit-lab> 
+   <app-home [manager]="true"></app-home> 
+  
+</div>-->
