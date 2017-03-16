@@ -1,17 +1,32 @@
 
+@nav-color: #3D80B7;
+.nav-dark-gradient {
+    background: rgba(65,77,85,1);
+    background: -moz-linear-gradient(top, rgba(65,77,85,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(65,77,85,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top, rgba(65,77,85,1) 0%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(65,77,85,1) 0%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(65,77,85,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(65,77,85,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414d55', endColorstr='#000000', GradientType=0 );
+}
+
 
 .header {
     margin: 0px;
     padding: 0px;
     height: 80px;
     width: 100%;
-    background: url('assets/blue header.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url('assets/blue header.jpg') no-repeat center center;
+    background-size: initial;
     border: none;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid black;
+    // bottom shadow
+    -webkit-box-shadow: 0px 10px 37px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 37px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 37px -9px rgba(0,0,0,0.75);
     .logo-container {
         flex: 1;    
         display: flex;
@@ -34,8 +49,29 @@
           list-style: none;
           display: flex;
           li {
-              margin: 0px 3px 0px 3px;
-              color: white;
+              a {
+                  font-size: 12px;
+                  color: @nav-color;
+                  &.active {
+                      .nav-dark-gradient;
+                        color: white;
+                        border: none;
+                        border: 1px solid black;
+                        border-bottom-left-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        &:active {
+                            transform: none;
+                        }
+                  }
+                  &:hover {
+                      color: white;
+                  }
+                  &:active {
+                      transform: scale(1.1);
+                      box-shadow: none;
+                  }
+              }
+              
           }  
         }
     }
@@ -44,5 +80,16 @@
         justify-content: center;
         flex: 1;
         display: flex;
+        height: 100%;
+        align-items: flex-end;
+        img {
+            width: 15px;
+            height: 15px;
+            margin: 10px;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.15);
+            }
+        }
     }
 }

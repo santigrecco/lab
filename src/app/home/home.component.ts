@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   manager:Boolean =  this.rank === 'manager';
 
   constructor(private router:ActivatedRoute) {
-    
+    console.log(this.rank)
    }
 
   ngOnInit() {}

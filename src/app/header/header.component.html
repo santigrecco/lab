@@ -1,34 +1,35 @@
 
 <div class="header container-fluid">
     <div class="logo-container">
-        <img src="assets/logo.svg" alt="DeloitteLabs" class="logo">
+        <a routerLink="/home">
+            <img src="assets/logo.svg" alt="DeloitteLabs" class="logo">   
+        </a>
     </div>
     <nav class="nav">
-        <ul [ngSwitch]="rank">
+        <ul >
             <li>
-                <a routerLink = "/home" class="btn">Home</a>
+                <a routerLink = "/home" routerLinkActive = "active" class="btn">Home</a>
             </li>
             <li>
-                <a routerLink = "/labs" class="btn">Labs</a>
+                <a routerLink = "/labs" routerLinkActive = "active" class="btn">Labs</a>
             </li>
-            <li *ngSwitchCase ="!manager">
-                <a routerLink = "/profile" class="btn">Profile</a>
+            <li *ngIf ="rank !== 'manager'">
+                <a routerLink = "/profile" routerLinkActive = "active" class="btn">Profile</a>
             </li>
-            <ng-container *ngSwitchCase ="manager">
+            <ng-container *ngIf ="rank === 'manager'">
                 <li  *ngFor="let link of links.manager">
-                    <a routerLink = "/login" class="btn">{{link.name}}</a>
+                    <a routerLink = "/{{link.path}}" routerLinkActive = "active" class="btn">{{link.name}}</a>
                 </li>
             </ng-container>
-            
-             
+            <ng-container *ngIf ="rank === 'labOwner'">
+                <li  *ngFor="let link of links.labOwner">
+                    <a routerLink = "/{{link.path}}" routerLinkActive = "active" class="btn">{{link.name}}</a>
+                </li>
+            </ng-container>
         </ul>
     </nav>
     <div class="right-panel">
-        <button class="btn btn-default">
-            button1
-        </button>
-        <button class="btn btn-default">
-            button2
-        </button>
+        <img src="assets/Bell Icon.svg" alt="Notifications">
+        <img src="assets/Log Out.svg" alt="Log Out">
     </div>
 </div>
