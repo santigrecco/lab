@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,14 +8,21 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   backgroundImage: String = 'assets/home-background.jpg'; 
-  @Input() rank;
-  manager:Boolean =  this.rank === 'manager';
+  user;
+  rankSub;
   // background: url('assets/home-background.jpg');
 
   constructor(private router:ActivatedRoute) {
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.rankSub = this.router.data.subscribe( data => {
+      this.user = data;
+    })
+                    
+  }
 
-  
+  ngOnDestroy() {
+    this.rankSub.unsubscribe();
+  }
 }

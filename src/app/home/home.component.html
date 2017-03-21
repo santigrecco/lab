@@ -8,9 +8,9 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore veniam impedit numquam recusandae sint illo velit nemo beatae odio quasi eligendi, eaque dicta vel provident aut consectetur maiores omnis ducimus!
       </p>
     </div>
-      <button *ngIf="manager == 'manager'" class="btn">
+      <a *ngIf="user.rank === 'manager'" class="btn" routerLink="/home/edit">
         Edit
-      </button>
+      </a>
   </div>
 
   

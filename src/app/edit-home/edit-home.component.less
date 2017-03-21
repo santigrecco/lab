@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@smartphone: ~"screen and (max-width: 750px)";
+
+@primary: #003366;
+@secondary: #999999;
+@border-color: #666666;
+
+@general-padding: 40px;
+
+
+
+.gradient {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(204,204,204,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
+
+}
+
+.edit-home {
+    min-height: ~'calc(100vh - 80px)';
+    .gradient;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    *:focus {
+        outline: "1px solid #3498db"
+    }
+    h3 {
+        color: @primary;
+        font-weight: bold;
+        margin: 25px 0px 10px 6%;
+    }
+    hr {
+        border-color: @primary;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}

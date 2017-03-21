@@ -15,6 +15,7 @@ import { ProposeLabComponent } from './propose-lab/propose-lab.component';
 import { EditLabComponent } from './edit-lab/edit-lab.component';
 import { HomeComponent } from './home/home.component';
 import { ComponentHeaderComponent } from './component-header/component-header.component';
+import { EditHomeComponent } from './edit-home/edit-home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ComponentHeaderComponent } from './component-header/component-header.co
     HomeComponent,
     ComponentHeaderComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    EditHomeComponent
   ],
   imports: [
     BrowserModule,
