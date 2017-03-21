@@ -1,4 +1,25 @@
 <div class="edit-home">
   <h3>Home</h3>
   <hr>
+  <div class="content col-md-12 col-xl-12 col-sm-12">
+    <form class="col-md-6 col-xs-12">
+      <label for="description" class="col-md-12">
+        Home Edition
+      </label>
+      <textarea  id="description" class="col-md-12" rows="10">
+
+      </textarea>
+      <label for="image" class="col-md-12">
+        Image
+      </label>
+      <div class="file-group col-md-12">
+        <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" >
+        <label for="image" (click)="browseClick()">
+          Browse
+        </label>
+      </div>
+      <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
+      <img [src]="target.result || '#'" alt="your image">
+    </form>  
+  </div>
 </div>

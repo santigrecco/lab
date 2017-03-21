@@ -22,8 +22,8 @@
 }
 
 .edit-home {
-    min-height: ~'calc(100vh - 80px)';
     .gradient;
+    min-height: ~'calc(100vh - 80px)';
     font-family: 'Open Sans', sans-serif;
     padding: 0px;
     display: flex;
@@ -41,4 +41,55 @@
         width: 90%;
         margin-bottom: 10px;
     }
+    .content {
+        display: flex;
+        justify-content: center;
+        form {
+            background: white;
+            min-height: 500px;
+            padding: 30px;
+        }
+        label {
+            color: @primary;
+            font-size: 20px;
+            margin-top: 20px;
+            padding: 0px;
+        }
+        .file-group {
+            display: flex;
+            padding: 0px;
+            height: 25px;
+            input {
+                width: 220px;
+                border:1px solid @border-color;
+                text-indent: 5px;
+            }
+            label {
+                margin: 0px;
+                .gradient;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 600;
+                width: 60px;
+                font-size: 9.3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 25px;
+                border: 1px solid;
+                border-left: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-color: @border-color;   
+                cursor: pointer;                
+                &:hover{
+                    background:#cccccc;
+                    color: @primary;
+                }
+            }
+        }
+        #image {
+            display: none;
+        }
+    }
+    
 }
