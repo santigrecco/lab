@@ -4,5 +4,89 @@
   </span>
   <h3>Edit Lab </h3>
   <hr/>
-
+  <div class="content col-md-12 col-xs-12 col-xl-12">
+    <form class="col-md-8 col-xl-8 col-xs-12">
+      <div class="form-row">
+        <label for="name" class="col-md-4 col-xs-4">
+          Name
+        </label>
+        <input type="text" [(value)]="labData.name" id="name" class="col-md-6 col-xs-6">
+      </div>
+      <div class="form-row">
+        <label for="status" class="col-md-4 col-xs-4">
+          Lab Status
+        </label>
+        <select name="status" id="status" [value]="labData.active ? 'active' : 'close' " #Status class="col-md-6 col-xs-6" (change)="statusChanged(Status.value)">
+          <option value="active" [disabled]="labData.active ? true : null"> Active </option>
+          <option value="close" [disabled]="!labData.active ? true : null"> Close </option>
+        </select>  
+      </div>
+      <div class="form-row">
+        <label for="image" class="col-md-4 col-xs-4">
+          Image
+        </label>
+        <div class="file-group col-md-6 col-xs-6">
+          <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" >
+          <label for="image" (click)="browseClick()">
+            Browse
+          </label>
+        </div>
+        <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
+      </div>
+      <img class="preview col-md-4 col-xs-4" [src]="imageSrc" *ngIf="imageSrc != '#'" alt="your image">
+      <div class="form-row">
+        <label for="description" class="col-md-4 col-xs-4 col-xl-4">
+          Description
+        </label>
+        <textarea id="description" rows="8" class="col-md-6 col-xs-6" [value]="labData.description"></textarea>
+      </div>
+      <div class="form-row">
+        <label for="tags" class="col-md-4 col-xs-4 col-xl-4">
+          Tags 
+        </label>
+        <div class="tags col-md-6 col-xs-6 col-xl-6">
+          <div class="tags-input">
+            <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}"
+              (enter)="addTag(inputTag)">
+            <button (click)="addTag(inputTag)" >
+                <img src="assets/Plus sign.svg" />
+            </button>
+          </div>
+          <ul *ngIf="tagsArray" class="tags-list">
+            <li *ngFor="let tag of tagsArray">
+              {{tag}} <img src="assets/close-cross.png" alt="X" (click)="removeTag(tag)">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="form-row">
+        <label for="repository" class="col-md-4 col-xs-4 col-xl-4">
+          Repository
+        </label>
+        <input type="text" id="repository" [value]="labData.repository" class="col-md-6 col-xs-6 col-xl-6">
+      </div>
+      <div class="form-row">
+        <label for="instructions" class="col-md-4 col-xs-4">
+          Instructions
+        </label>
+        <ul class="instructions col-md-6 col-xs-6">
+          <li *ngFor="let instruction of labData.instructions">
+            {{instruction}}
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="form-row">
+        <label for="jira-url" class="col-md-4 col-xs-4">
+          Jira URL
+        </label>
+        <input type="text" class="col-md-6 col-xs-6" [value]="labData.jiraUrl">
+      </div>
+      <div class="buttons">
+        <a routerLink="labs" class="cancel">Cancel</a>
+        <a routerLink="labs" class="submit">Cancel</a>
+      </div>
+    </form>  
+  </div> 
 </div>

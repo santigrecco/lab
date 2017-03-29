@@ -1,0 +1,11 @@
+<div class="component-header">
+  <span class="breadcrumb" *ngIf="breadcrumb">
+    <span *ngFor="let page of breadcrumb">
+      <a [href]="page.link">{{page.name}} </a>
+      /
+    </span>
+    {{title}}
+  </span>
+  <h3 [ngClass]="{'no-breadcrumb': !breadcrumb}">{{title}}</h3>
+  <hr/>
+</div>

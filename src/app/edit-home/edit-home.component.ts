@@ -8,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EditHomeComponent implements OnInit {
   fileName: String = '';
   imageSrc: String = '#';
-  target = {
-    result: ''
-  };
+  
   constructor() { }
 
   ngOnInit() {
@@ -20,13 +18,13 @@ export class EditHomeComponent implements OnInit {
     this.fileName = input.files[0].name;
     let reader = new FileReader();
     reader.onload = (e: Event) => {
-      this.target = e.target;
-      
+      this.imageSrc = reader.result;      
     }
     reader.readAsDataURL(input.files[0])
    }
   browseClick() {
     this.fileName = '';
+    this.imageSrc = '#';
   }
 
 }

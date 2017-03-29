@@ -19,11 +19,37 @@ export class HeaderComponent implements OnInit {
       {name: 'Reports', path: '/reports'}
     ]
   }
-    
+  windowWidth: Number = document.body.clientWidth;    
+  mobileMenuActive: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  resize() {
+    this.windowWidth = document.body.clientWidth;
+  }
+  
+  notiClick() {
+    console.log(this.windowWidth);
+  }
+
+  mobile() {
+    if(this.windowWidth <= 760) {
+      return true;
+    }
+    return false;
+  }
+  
+  mobileMenu(menu) {
+    if(!this.mobileMenuActive) {
+      this.mobileMenuActive = !this.mobileMenuActive;
+      menu.classList.add('active');
+    } else{ 
+      this.mobileMenuActive = !this.mobileMenuActive;
+      menu.classList.remove('active');
+    }
   }
 
 }

@@ -1,11 +1,11 @@
 
-<div class="header container-fluid">
+<div class="header container-fluid" (window:resize)="resize()">
     <div class="logo-container">
         <a routerLink="/home">
             <img src="assets/logo.svg" alt="DeloitteLabs" class="logo">   
         </a>
     </div>
-    <nav class="nav">
+    <nav class="nav" *ngIf="!mobile()">
         <ul >
             <li>
                 <a routerLink = "/home" routerLinkActive = "active" class="btn">Home</a>
@@ -28,8 +28,11 @@
             </ng-container>
         </ul>
     </nav>
-    <div class="right-panel">
-        <img src="assets/Bell Icon.svg" alt="Notifications">
+    <div class="right-panel" *ngIf="!mobile()">
+        <img src="assets/Bell Icon.svg" alt="Notifications" (click)="notiClick()">
         <img src="assets/Log Out.svg" alt="Log Out">
+    </div>
+    <div class="mobile-menu"  *ngIf="mobile()">
+        <i #MobileMenu class="glyphicon glyphicon-menu-hamburger" (click)="mobileMenu(MobileMenu)"></i>
     </div>
 </div>

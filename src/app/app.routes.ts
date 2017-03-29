@@ -1,3 +1,5 @@
+import { ProposeLabComponent } from './propose-lab/propose-lab.component';
+import { EditLabComponent } from './edit-lab/edit-lab.component';
 import { EditHomeComponent } from './edit-home/edit-home.component';
 import { LabsComponent } from './labs/labs.component';
 import { LoginComponent } from './login/login.component';
@@ -25,5 +27,13 @@ export const APP_ROUTES:Routes = [
   {
     path: 'home/edit',
     component: EditHomeComponent
+  },
+  {
+    path: 'labs/edit-lab',
+    component: EditLabComponent
+  },
+  { 
+    path: 'labs/propose-lab',
+    component: ProposeLabComponent
   }
 ]

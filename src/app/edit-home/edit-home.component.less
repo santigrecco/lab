@@ -20,12 +20,23 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
 
 }
+.green-gradient {
+    background: rgba(158,203,6,1);
+    background: -moz-linear-gradient(top, rgba(158,203,6,1) 0%, rgba(120,199,81,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(158,203,6,1)), color-stop(100%, rgba(120,199,81,1)));
+    background: -webkit-linear-gradient(top, rgba(158,203,6,1) 0%, rgba(120,199,81,1) 100%);
+    background: -o-linear-gradient(top, rgba(158,203,6,1) 0%, rgba(120,199,81,1) 100%);
+    background: -ms-linear-gradient(top, rgba(158,203,6,1) 0%, rgba(120,199,81,1) 100%);
+    background: linear-gradient(to bottom, rgba(158,203,6,1) 0%, rgba(120,199,81,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ecb06', endColorstr='#78c751', GradientType=0 );
+}
 
 .edit-home {
     .gradient;
     min-height: ~'calc(100vh - 80px)';
     font-family: 'Open Sans', sans-serif;
     padding: 0px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     *:focus {
@@ -34,19 +45,19 @@
     h3 {
         color: @primary;
         font-weight: bold;
-        margin: 25px 0px 10px 6%;
+        margin: 25px 0px 5px 6%;
     }
     hr {
         border-color: @primary;
         width: 90%;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
     .content {
         display: flex;
         justify-content: center;
         form {
             background: white;
-            min-height: 500px;
+            min-height: 300px;
             padding: 30px;
         }
         label {
@@ -89,6 +100,37 @@
         }
         #image {
             display: none;
+        }
+        .preview {
+            height: auto;
+            margin-top: 10px;
+        }
+        .buttons {
+            display: flex;
+            margin-top: 20px;
+            padding: 0px;
+            .button {
+                padding: 5px 10px;
+                font-weight: bold;
+                width: 100px;
+                border: 1px solid;
+                &:hover {
+                    opacity: .8;
+                }
+            }
+            .cancel {
+               .button; 
+               .gradient;     
+               border-color: @border-color;
+               color: #7B797B;
+               margin-right: 10px;
+            }
+            .save {
+                .button;
+                .green-gradient;
+                border-color: #6B9D6B;
+                color: white;
+            }
         }
     }
     
