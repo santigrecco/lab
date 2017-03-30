@@ -7,47 +7,48 @@
   <div class="content col-md-12 col-xs-12 col-xl-12">
     <form class="col-md-8 col-xl-8 col-xs-12">
       <div class="form-row">
-        <label for="name" class="col-md-4 col-xs-4">
-          Name
+        <label for="name" class="col-md-4 col-xs-12">
+          Name <i>*</i>
         </label>
-        <input type="text" [(value)]="labData.name" id="name" class="col-md-6 col-xs-6">
+        <input type="text" [(value)]="labData.name" id="name" class="col-md-6 col-xs-12" 
+        [disabled]="!labData.active ? true : null">
       </div>
       <div class="form-row">
-        <label for="status" class="col-md-4 col-xs-4">
-          Lab Status
+        <label for="status" class="col-md-4 col-xs-12">
+          Lab Status <i>*</i>
         </label>
-        <select name="status" id="status" [value]="labData.active ? 'active' : 'close' " #Status class="col-md-6 col-xs-6" (change)="statusChanged(Status.value)">
+        <select name="status" id="status" [value]="labData.active ? 'active' : 'close' " #Status class="col-md-6 col-xs-12" (change)="statusChanged(Status.value)" [disabled]="userRank != 'manager'">
           <option value="active" [disabled]="labData.active ? true : null"> Active </option>
           <option value="close" [disabled]="!labData.active ? true : null"> Close </option>
         </select>  
       </div>
       <div class="form-row">
-        <label for="image" class="col-md-4 col-xs-4">
+        <label for="image" class="col-md-4 col-xs-12">
           Image
         </label>
-        <div class="file-group col-md-6 col-xs-6">
-          <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" >
-          <label for="image" (click)="browseClick()">
+        <div class="file-group col-md-6 col-xs-12">
+          <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" [disabled]="!labData.active ? true : null">
+          <label for="image" (click)="browseClick()" >
             Browse
           </label>
         </div>
-        <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
+        <input type="file" id="image" #file (change)="fileValueChange(file)" [disabled]="!labData.active ? true : null">
       </div>
       <img class="preview col-md-4 col-xs-4" [src]="imageSrc" *ngIf="imageSrc != '#'" alt="your image">
       <div class="form-row">
-        <label for="description" class="col-md-4 col-xs-4 col-xl-4">
-          Description
+        <label for="description" class="col-md-4 col-xs-12 col-xl-4">
+          Description <i>*</i>
         </label>
-        <textarea id="description" rows="8" class="col-md-6 col-xs-6" [value]="labData.description"></textarea>
+        <textarea id="description" rows="8" class="col-md-6 col-xs-12" [value]="labData.description"
+            [disabled]="!labData.active ? true : null"></textarea>
       </div>
       <div class="form-row">
-        <label for="tags" class="col-md-4 col-xs-4 col-xl-4">
-          Tags 
+        <label for="tags" class="col-md-4 col-xs-12 col-xl-4">
+          Tags <i>*</i>
         </label>
-        <div class="tags col-md-6 col-xs-6 col-xl-6">
+        <div class="tags col-md-6 col-xs-12 col-xl-6">
           <div class="tags-input">
-            <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}"
-              (enter)="addTag(inputTag)">
+            <input type="text" id="tags" #inputTag name="tags" [ngClass]="{'incomplete-field': mandatoryIncomplete && tagsArray.length === 0}" (enter)="addTag(inputTag)" [disabled]="!labData.active ? true : null">
             <button (click)="addTag(inputTag)" >
                 <img src="assets/Plus sign.svg" />
             </button>
@@ -61,16 +62,17 @@
       </div>
       <hr>
       <div class="form-row">
-        <label for="repository" class="col-md-4 col-xs-4 col-xl-4">
+        <label for="repository" class="col-md-4 col-xs-12 col-xl-4">
           Repository
         </label>
-        <input type="text" id="repository" [value]="labData.repository" class="col-md-6 col-xs-6 col-xl-6">
+        <input type="text" id="repository" [value]="labData.repository" class="col-md-6 col-xs-12 col-xl-6"
+          [disabled]="!labData.active ? true : null">
       </div>
       <div class="form-row">
-        <label for="instructions" class="col-md-4 col-xs-4">
+        <label for="instructions" class="col-md-4 col-xs-12">
           Instructions
         </label>
-        <ul class="instructions col-md-6 col-xs-6">
+        <ul class="instructions col-md-6 col-xs-12">
           <li *ngFor="let instruction of labData.instructions">
             {{instruction}}
           </li>
@@ -78,14 +80,14 @@
       </div>
       <hr>
       <div class="form-row">
-        <label for="jira-url" class="col-md-4 col-xs-4">
+        <label for="jira-url" class="col-md-4 col-xs-12">
           Jira URL
         </label>
-        <input type="text" class="col-md-6 col-xs-6" [value]="labData.jiraUrl">
+        <input type="text" class="col-md-6 col-xs-12" [value]="labData.jiraUrl" [disabled]="!labData.active ? true : null">
       </div>
       <div class="buttons">
-        <a routerLink="labs" class="cancel">Cancel</a>
-        <a routerLink="labs" class="submit">Cancel</a>
+        <a routerLink="/labs" class="cancel">Cancel</a>
+        <a routerLink="#" class="submit">Submit</a>
       </div>
     </form>  
   </div> 

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
-@smartphone: ~"screen and (max-height: 670px) and (max-width: 500px)";
+@smartphone: ~"screen and (max-width: 700px)";
 
 @primary: #003366;
 @secondary: #999999;
@@ -18,12 +18,25 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
 
 }
+.blue-gradient {
+  background: rgba(0,118,168,1);
+  background: -moz-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,118,168,1)), color-stop(100%, rgba(0,51,102,1)));
+  background: -webkit-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0076a8', endColorstr='#003366', GradientType=0 );
+}
 
 
 .edit-lab {
   input, button, #status, textarea {
     border: 1px solid @border-color;
     padding: 0px 5px;
+  }
+  input, #status {
+    height: 25px;
   }
   .gradient;
     min-height: ~'calc(100vh - 80px)';
@@ -92,11 +105,15 @@
             color: @primary;
             font-size: 20px;
             padding: 0px;
+            i {
+              color: red;
+              vertical-align: super;
+              font-size: 12px;
+            }
         }
         .file-group {
             display: flex;
             padding: 0px;
-            height: 25px;
             input {
                 width: ~'calc(100% - 60px)';
                 text-indent: 5px;
@@ -247,6 +264,9 @@
       }
       .submit {
         .button;
+        .blue-gradient;
+        border-color: @primary;
+        color: white;
       }
     }
   
@@ -266,6 +286,26 @@
         }
     }
 
+}
+
+
+@media @smartphone {
+  form {
+    padding: 5px !important;
+    .form-row {
+      display: flex;
+      flex-direction: column !important;
+      align-items: center;
+      label {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  
+  .buttons {
+    margin: 20px 0px 0px 0px;
+
+  }
 }
 
 

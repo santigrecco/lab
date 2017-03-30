@@ -6,9 +6,7 @@
       <label for="description" class="col-md-12 col-xs-12">
         Home Edition
       </label>
-      <textarea  id="description" class="col-md-12 col-xs-12" rows="7">
-
-      </textarea>
+      <textarea  id="description" class="col-md-12 col-xs-12" rows="7"></textarea>
       <label for="image" class="col-md-12 col-xs-12">
         Image
       </label>
@@ -19,12 +17,12 @@
         </label>
       </div>
       <input type="file" id="image" #file (change)="fileValueChange(file)" name="image">
-      <img class="preview col-md-4 col-xs-4" [src]="imageSrc" *ngIf="imageSrc != '#'" alt="your image">
+      <img class="preview col-md-4 col-xs-12" [src]="imageSrc" *ngIf="imageSrc != '#'" alt="your image">
       <div class="buttons col-md-12 col-xs-12 col-lg-12">
-        <a href="/home" class="cancel btn">
+        <a routerLink="/home" class="cancel btn">
           Cancel
         </a>
-        <a href="" class="save btn">
+        <a routerLink="#" class="save btn">
           Save
         </a>
       </div>

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-lab.component.less']
 })
 export class EditLabComponent implements OnInit {
-  userRank: String;
+  userRank: String = 'manager';
   fileName: String = '';
   imageSrc: String = '#';
   tagsArray:Array<String> = [];
