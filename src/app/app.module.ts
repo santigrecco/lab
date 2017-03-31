@@ -8,22 +8,27 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LabsComponent } from './labs/labs.component'
 import { APP_ROUTES } from './app.routes';
-import { SecondaryComponent } from './secondary/secondary.component';
-import { ThirdComponent } from './third/third.component';
 import { LoginComponent } from './login/login.component';
 import { ProposeLabComponent } from './propose-lab/propose-lab.component';
 import { EditLabComponent } from './edit-lab/edit-lab.component';
 import { HomeComponent } from './home/home.component';
 import { ComponentHeaderComponent } from './component-header/component-header.component';
 import { EditHomeComponent } from './edit-home/edit-home.component';
+import { AppDevelopmentComponent } from './app-development/app-development.component';
+
+import { TabsModule } from 'ng2-bootstrap';
+import { ProjectInfoComponent } from './app-development/project-info/project-info.component';
+import { TeamComponent } from './app-development/team/team.component';
+import { RepositoryComponent } from './app-development/repository/repository.component';
+import { TasksComponent } from './app-development/tasks/tasks.component';
+import { ForumComponent } from './app-development/forum/forum.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LabsComponent,
-    SecondaryComponent,
-    ThirdComponent,
     LoginComponent,
     ProposeLabComponent,
     EditLabComponent,
@@ -31,13 +36,20 @@ import { EditHomeComponent } from './edit-home/edit-home.component';
     ComponentHeaderComponent,
     HomeComponent,
     HeaderComponent,
-    EditHomeComponent
+    EditHomeComponent,
+    AppDevelopmentComponent,
+    ProjectInfoComponent,
+    TeamComponent,
+    RepositoryComponent,
+    TasksComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
