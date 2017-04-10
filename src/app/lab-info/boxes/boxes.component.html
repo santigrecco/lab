@@ -1,0 +1,36 @@
+<div class="boxes">
+    <div class="box col-xs-4 col-md-3">
+      <h4><b>Lab Status</b></h4>
+      <h5 class="status">
+        {{lab.status}}
+      </h5>
+    </div>
+    <div class="box col-xs-4 col-md-3">
+      <h5><b>Active Members</b></h5>
+      <ul>
+        <li *ngFor="let member of lab.likes">
+          {{member.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="box likes col-xs-4 col-md-3">
+      <div class="likes-count">
+        {{lab.likes.length}}<img src="assets/Hand like.svg" alt="like">
+      </div>
+      <span>
+        {{lab.likes.length}} PEOPLE LIKES THIS LAB
+      </span>
+    </div>  
+    <div class="box join col-xs-4 col-md-3">
+      <h5><b>Would you join?</b></h5>
+      <div class="join-radio">
+        <label for="yes">Yes</label> 
+        <input type="radio" name="join" id="yes">
+        <label for="no">No</label>
+        <input type="radio" name="join" id="no">
+      </div>
+      <span class="would-join">
+        {{lab.wouldJoin.length}} PEOPLE WOULD JOIN THIS LAB
+      </span>
+    </div>
+  </div>

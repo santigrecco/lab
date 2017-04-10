@@ -1,0 +1,19 @@
+<div class="project-info col-xs-12">
+  <div class="main-content">
+    <div class="image-tags col-xs-12 col-md-5">
+      <img [src]="lab.image.src" alt="lab image" class="col-xs-12 row">
+      <ul class="tags col-xs-12 row">
+        <li *ngFor="let tag of lab.tags" class="tag">
+          {{tag}}
+        </li>
+      </ul>
+    </div>
+    <div class="description col-xs-12 col-md-7">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo perspiciatis maxime similique minima animi, error dolore optio vel ipsam! Explicabo, fuga totam. Officia mollitia recusandae unde possimus quidem a rerum.
+    </div>
+  </div>
+
+  <app-boxes [lab]="lab">
+  </app-boxes>
+  
+</div>

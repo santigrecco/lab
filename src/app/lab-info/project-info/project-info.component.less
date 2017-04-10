@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@smartphone: ~"screen and (max-width: 700px)";
+
+@primary: #003366;
+@secondary: #999999;
+@border-color: #666666;
+
+@general-padding: 40px;
+
+.gradient {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(204,204,204,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0 );
+
+}
+.blue-gradient {
+  background: rgba(0,118,168,1);
+  background: -moz-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,118,168,1)), color-stop(100%, rgba(0,51,102,1)));
+  background: -webkit-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,118,168,1) 0%, rgba(0,51,102,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0076a8', endColorstr='#003366', GradientType=0 );
+}
+
+
+.project-info {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    .main-content {
+        padding: 20px;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        min-height: 40vh;
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Open Sans', sans-serif; 
+        border: 1px solid #DDDDDD; 
+        border-top: none;
+        background: white;
+        .image-tags {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            img {
+                max-height: 60vh;
+                padding: 0px;
+            }
+            .tags {
+                min-height: 40px;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 0px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                .tag {
+                    margin-right: 5px;
+                    margin-top: 5px;
+                    padding: 2px 5px;
+                    font-size: 12px;
+                    color: white;
+                    background-color: #A8A8A8;
+                }
+            }
+        }
+        .description {
+            color: @secondary;
+        }
+    }
+    
+
+
+    
+
+}
+

@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router'
+import { TabsModule } from 'ng2-bootstrap';
+import { PopoverModule } from 'ng2-bootstrap';
+import { AccordionModule } from 'ng2-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,14 +18,16 @@ import { EditLabComponent } from './edit-lab/edit-lab.component';
 import { HomeComponent } from './home/home.component';
 import { ComponentHeaderComponent } from './component-header/component-header.component';
 import { EditHomeComponent } from './edit-home/edit-home.component';
-import { AppDevelopmentComponent } from './app-development/app-development.component';
+import { LabInfoComponent } from './lab-info/lab-info.component';
+import { TeamComponent } from './lab-info/team/team.component';
+import { RepositoryComponent } from './lab-info/repository/repository.component';
+import { TasksComponent } from './lab-info/tasks/tasks.component';
+import { ForumComponent } from './lab-info/forum/forum.component';
+import { ProjectInfoComponent } from './lab-info/project-info/project-info.component';
+import { BoxesComponent } from './lab-info/boxes/boxes.component';
 
-import { TabsModule } from 'ng2-bootstrap';
-import { ProjectInfoComponent } from './app-development/project-info/project-info.component';
-import { TeamComponent } from './app-development/team/team.component';
-import { RepositoryComponent } from './app-development/repository/repository.component';
-import { TasksComponent } from './app-development/tasks/tasks.component';
-import { ForumComponent } from './app-development/forum/forum.component';
+
+
 
 
 @NgModule({
@@ -37,19 +43,28 @@ import { ForumComponent } from './app-development/forum/forum.component';
     HomeComponent,
     HeaderComponent,
     EditHomeComponent,
-    AppDevelopmentComponent,
     ProjectInfoComponent,
     TeamComponent,
     RepositoryComponent,
     TasksComponent,
-    ForumComponent
+    ForumComponent,
+    ProjectInfoComponent,
+    LabInfoComponent,
+    TasksComponent,
+    ProjectInfoComponent,
+    TeamComponent,
+    RepositoryComponent,
+    ForumComponent,
+    BoxesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(APP_ROUTES),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    PopoverModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

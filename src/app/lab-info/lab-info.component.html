@@ -1,0 +1,35 @@
+<div class="lab-info">
+  <span class="breadcrumb">
+    <a href="/labs/proposed-labs">Proposed Labs  </a>  / {{lab.name}}
+  </span>
+  <div class="header">
+    <h3>{{lab.name}}</h3>
+    <button class="leave-btn" (click)="leave()">
+      Leave
+    </button>  
+  </div>
+
+  <div class="content">
+    <tabset #staticTabs class="tabset col-md-8 col-xs-10 col-lg-8">
+      <tab heading="Forum" customClass="heading">
+        <app-forum [lab]="lab">
+        </app-forum>
+      </tab>
+      <tab heading="Project info" draggable="false" customClass="heading">
+        <app-project-info [lab]="lab">
+        </app-project-info>
+      </tab>
+      <tab heading="Team" customClass="heading">
+        <app-team></app-team>
+      </tab>
+      <tab heading="Repository" customClass="heading">
+        <app-repository [lab]="lab"></app-repository>
+      </tab>
+      <tab heading="Tasks" customClass="heading">
+        <app-tasks></app-tasks>
+      </tab>
+      
+    </tabset>
+    
+  </div>
+</div>

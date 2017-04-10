@@ -1,4 +1,4 @@
-import { AppDevelopmentComponent } from './app-development/app-development.component';
+import { LabInfoComponent } from './lab-info/lab-info.component';
 import { ProposeLabComponent } from './propose-lab/propose-lab.component';
 import { EditLabComponent } from './edit-lab/edit-lab.component';
 import { EditHomeComponent } from './edit-home/edit-home.component';
@@ -38,7 +38,7 @@ export const APP_ROUTES:Routes = [
     component: ProposeLabComponent
   },
   {
-    path: 'profile/active-labs/app-development',
-    component: AppDevelopmentComponent
+    path: 'labs/proposed-labs/:lab',
+    component: LabInfoComponent
   }
 ]
