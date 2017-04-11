@@ -1,11 +1,46 @@
 <div class="forum">
   <div class="header">
     <ul>
-      <li class="important-heading">Topic</li>
+      <li class="important-heading topic">Topic</li>
       <li>Messages</li>
       <li>Views</li>
       <li>Author</li>
-      <li class="important-heading">New Topic</li>
+      <li class="important-heading new-topic">
+        <button class="btn btn-info">
+          New Topic
+        </button>
+      </li>
     </ul>
+  </div>
+  <hr>
+  <div class="topics">
+    <div class="topic" *ngFor="let topic of topics">
+      <div class="heading">
+        <ul>
+          <li (click)="openContent(topic)">
+            {{topic.name}}
+          </li>
+          <li>
+            {{topic.messages.length}}
+          </li>
+          <li>
+            {{topic.views}}
+          </li>
+          <li>
+            {{topic.author.username}}
+          </li>
+          <li>
+            <img src="" alt="img">
+          </li>
+          <li>
+          </li>
+        </ul>
+      </div>
+      <!--topic.show is equal to undefined, but !undefined is equal to true, so it's defined the first time it's clicked , otherwise we can initiate a property show = false on each topic-->
+      <div class="content" [ngClass]="{'hidden': !topic.show}">
+
+      </div>
+      <hr>
+    </div>
   </div>
 </div>

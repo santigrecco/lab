@@ -54,7 +54,12 @@
     border: 1px solid #DDDDDD; 
     border-top: none;
     background: white;
-
+    hr {
+        border: none;
+        height: 1px;
+        background: @border-color;
+        width: 100%;
+    }
     .header {
         ul {
             display: flex;
@@ -64,12 +69,77 @@
                 flex: 1;
                 display: flex;
                 justify-content: center;
+                align-items: center;
             }
             .important-heading {
                 flex: 2;
+                &.topic {
+                    justify-content: flex-start;
+                }
+                &.new-topic {
+                    justify-content: flex-end;
+                    button {
+                        .blue-gradient;
+                        border: 1px solid @primary;
+                        &:hover {
+                            opacity: .8;
+                        }
+                    }
+                }
             }
         }
         
     }
 
+    .topics {
+        .topic {
+            display: flex;
+            flex-direction: column;
+            
+            .heading {    
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0px;
+                    li {
+                        flex: 1;
+                        justify-content: center;
+                        display: flex;
+                    }
+                    li:nth-child(1) {
+                        flex: 2;
+                        justify-content: flex-start;
+                        padding-left: 5px;
+                        color: @primary;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                    
+                }
+            }
+            .content {
+                width: 100%;
+                height: 200px;
+                transition: 2s ease;    
+            }
+        }
+    }
+    
 }
+@keyframes content-in {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 200px;
+    }
+}
+
+.hidden  {
+    height: 0px;
+    transition: 2s;
+}
+
+
