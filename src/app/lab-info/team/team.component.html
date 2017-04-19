@@ -1,3 +1,43 @@
-<p>
-  team works!
-</p>
+<div class="team">
+  <div class="add-member col-xs-3" >
+    <button class="add-member-btn" *ngIf="userData.rank === 'manager'">
+      <b>+</b> Add Member
+    </button>
+  </div>
+  <div class="labels col-xs-12">
+    <span class="col-xs-4 col-md-5">User</span>
+    <span class="col-xs-4 col-md-2">Role</span>
+    <span class="col-xs-4 col-md-2">Status</span>
+  </div>
+  <hr class="hr col-sm-12 col-md-8">
+  <ul class="team-members">
+    <li *ngFor="let member of lab.team" class="member">
+      <div class="data">
+        <div class="name col-xs-4 col-md-5">
+          <img src="" alt="X" (click)="deleteMember(member)">
+          {{member.name}}
+        </div>
+        <select name="role" id="role" class="col-xs-4 col-md-2"  [value]="member.role" *ngIf="userData.rank === 'manager'">
+          <option value="owner">
+            Owner
+          </option>
+          <option value="member">
+            Member
+          </option>
+        </select>
+        <div class="role-fixed col-xs-4 col-md-2" *ngIf="userData.rank === 'user'" >
+          {{member.role}}
+        </div>
+        <div class="status col-xs-4 col-md-2">
+          <div class="status-box" [class.active]="member.status == 'active'">
+            {{member.status}}
+          </div>
+        </div>
+      </div>
+      
+      <hr class="hr col-sm-12 col-md-8">
+    </li>
+  </ul>
+</div>
+
+<app-boxes [lab]="lab"></app-boxes>

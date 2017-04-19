@@ -8,6 +8,7 @@ import { PopoverModule } from 'ng2-bootstrap';
 import { AccordionModule } from 'ng2-bootstrap';
 
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LabsComponent } from './labs/labs.component'

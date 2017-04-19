@@ -6,7 +6,7 @@
       <li>Views</li>
       <li>Author</li>
       <li class="important-heading new-topic">
-        <button class="btn btn-info">
+        <button class="btn btn-info" (click)="newTopic()">
           New Topic
         </button>
       </li>
@@ -37,8 +37,37 @@
         </ul>
       </div>
       <!--topic.show is equal to undefined, but !undefined is equal to true, so it's defined the first time it's clicked , otherwise we can initiate a property show = false on each topic-->
-      <div class="content" [ngClass]="{'hidden': !topic.show}">
-
+      <div class="content" [ngClass]="{'show': topic.show}" #content>
+        <div class="messages">
+          <div class="messages-header">
+            <span class="col-xs-3 col-md-3">Author</span>
+            <span class="col-xs-3 col-md-3">Message</span>
+          </div>
+          <ul class="messages-list">
+            <li>
+              <div class="col-xs-3 author-data">
+                <img class="user-pic" src="assets/user-silhouette.png" alt="user">
+              </div>
+              <div #textarea contenteditable="true" name="message" id=""cols="10" class=" textarea col-xs-7"></div>
+              <div class="col-xs-2 send-button">
+                <button class="btn btn-success green-gradient" (click)="send(topic, content)">
+                  Send
+                </button>
+              </div>
+            </li>
+            <li *ngFor="let message of topic.messages">
+              <div class="col-xs-3 author-data">
+                <img src="assets/user-silhouette.png" class="user-pic" alt="user">  
+                <span>{{message.author}}</span>         
+              </div>
+              <div class="col-xs-7 message" [innerHTML]="message.message"> </div>
+              <div class="col-xs-2 likes">
+                <img src="assets/Hand like.svg" alt="likes">
+                <span>{{message.likes.length}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <hr>
     </div>

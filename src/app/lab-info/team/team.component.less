@@ -1,0 +1,100 @@
+@import '../../common';
+
+.team {
+    
+    min-height: 300px;
+    background: white;
+    border: 1px solid @light-grey;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    .add-member {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+        align-self: flex-end;
+        .add-member-btn {
+            .blue-gradient;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            border: 1px solid @primary;
+            b{
+                font-size: 20px;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+
+    .labels {
+        display: flex;
+        align-items: center;
+        color: @secondary;
+        font-weight: bold;
+        margin-top: 20px;
+        span {
+            justify-content: center;
+        }
+    }
+    hr {
+        border: none;
+        background: @secondary;
+        height: 1px;
+        padding: 0px;
+        width: 94%;
+        margin: 10px 3%;
+        
+    }
+
+    .team-members {
+        list-style: none;
+        padding: 0px;
+        .member {
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+            .data {
+                display: flex;
+                flex-direction: row;
+                .role-fixed {
+                    color: @primary;
+                    justify-content: center;
+                    text-align: left;
+                }
+                .name {
+                    padding-left: 30px;
+                }
+                select {
+                    padding: 0px 2px;
+
+                }
+                .status {
+                    .status-box {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 12px;
+                        // margin-left: 10px;
+                        padding: 5px 10px;
+                        background: @border-color;
+                        color: white;
+                        &.active {
+                            background: @light-green;
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+        
+    }
+}
+
+
+

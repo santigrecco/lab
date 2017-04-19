@@ -40,5 +40,9 @@ export const APP_ROUTES:Routes = [
   {
     path: 'labs/proposed-labs/:lab',
     component: LabInfoComponent
+  },
+  {
+    path: 'labs',
+    component: LabsComponent
   }
 ]

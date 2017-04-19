@@ -51,6 +51,12 @@ export class LabInfoComponent implements OnInit {
       'cd somerepo',
       'npm i',
       'ng serve'
+    ],
+    team:[
+      {name: 'chuck norris', role:'owner', status:'active'},
+      {name: 'jon snow', role:'member', status: 'unsuscribed'},
+      {name: 'tyrion lannister', role:'member', status: 'active'},
+      {name: 'chuck norris again', role:'owner', status: 'unsuscribed'}
     ]
 
   }
@@ -71,3 +77,5 @@ export class LabInfoComponent implements OnInit {
   }
 
 }
+
+
