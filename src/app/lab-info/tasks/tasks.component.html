@@ -1,3 +1,67 @@
-<p>
-  tasks works!
-</p>
+<div class="tasks">
+  <div class="jira-data">
+    <span>
+      JIRA URL
+    </span>
+    <input type="text" #jiraUrl [value]="lab.jiraUrl" readonly>
+    <button (click)="copyToClipboard(jiraUrl)">
+      Copy
+    </button>
+  </div>
+  <div class="task-list col-xs-12">
+    <div class="task-state">
+      <h5>
+        Pending
+      </h5>
+      <hr>
+        <blockquote *ngFor="let task of tasks.pending">
+          <div class="task-content">
+            <h6 >Unit Testing</h6>
+            <div class="bar">
+              <div class="progress col-xs-10">
+                <div class="progress-bar full-duration" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                style="width:100%;">
+                </div>
+              </div>
+              <span class="col-xs-2">
+                7hs
+              </span>
+            </div>
+            <div class="bar">
+              <div class="progress col-xs-10">
+                <div class="progress-bar done" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                style="width:69%;">
+                </div>
+                <div class="progress-bar todo" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+                style="width:29%;margin-left:2%">
+                </div>
+              </div>
+              <span class="col-xs-2">
+                70%
+              </span>
+            </div>
+          </div>
+        </blockquote>
+      
+    </div>
+    <div class="task-state">
+      <h5>
+        In Progress
+      </h5>
+      <hr>
+    </div>
+    <div class="task-state">
+      <h5>
+        Testing 
+      </h5>
+      <hr>
+    </div>
+    <div class="task-state">
+      <h5>
+        Done
+      </h5>
+      <hr>
+    </div>
+  </div>
+</div>
+<app-boxes [lab]="lab"></app-boxes>

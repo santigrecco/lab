@@ -16,8 +16,9 @@ export class RepositoryComponent implements OnInit {
     }
   }
 
-  copy(repository, copy) {
+  copyToClipboard(repository) {
     repository.select();
     document.execCommand('copy');
   }
+
 }

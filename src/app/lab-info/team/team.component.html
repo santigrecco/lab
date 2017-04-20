@@ -14,7 +14,7 @@
     <li *ngFor="let member of lab.team" class="member">
       <div class="data">
         <div class="name col-xs-4 col-md-5">
-          <img src="" alt="X" (click)="deleteMember(member)">
+          <img src="" class="delete-member" alt="X" (click)="deleteMember(member)">
           {{member.name}}
         </div>
         <select name="role" id="role" class="col-xs-4 col-md-2"  [value]="member.role" *ngIf="userData.rank === 'manager'">

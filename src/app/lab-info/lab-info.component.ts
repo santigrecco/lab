@@ -29,6 +29,7 @@ export class LabInfoComponent implements OnInit {
       'Angular'
     ],
     repository: 'http://www.github.com/somerepo',
+    jiraUrl:'jira.globant.com/lab',
     status: 'published',
     activeMembers: [
       {name: 'Natalia'},
@@ -60,6 +61,9 @@ export class LabInfoComponent implements OnInit {
     ]
 
   }
+  userData = {
+    rank: 'manager'
+  }
   constructor(private route: ActivatedRoute) {
     this.getLab();
    }
@@ -75,6 +79,10 @@ export class LabInfoComponent implements OnInit {
     this.lab.name = this.route.snapshot.params['lab'];
 
   }
+
+  edit(){}
+  
+  delete(){}
 
 }
 
