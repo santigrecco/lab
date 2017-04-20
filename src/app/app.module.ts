@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router'
 import { TabsModule } from 'ng2-bootstrap';
 import { PopoverModule } from 'ng2-bootstrap';
 import { AccordionModule } from 'ng2-bootstrap';
+import { ProgressbarModule } from 'ng2-bootstrap/progressbar';
 
 
 
@@ -65,7 +66,8 @@ import { BoxesComponent } from './lab-info/boxes/boxes.component';
     RouterModule.forRoot(APP_ROUTES),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    ProgressbarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

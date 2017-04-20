@@ -9,18 +9,18 @@ export class TasksComponent implements OnInit {
   @Input() lab;
   public tasks = {
     pending: [
-      [ {name: 'Unit Testing', fullDuration: '7hs', finished:0}],
-      [ {name: 'Unit Testing', fullDuration: '7hs', finished:0}],
-      [ {name: 'Unit Testing', fullDuration: '7hs', finished:0}]
+       {name: 'Unit Testing', fullDuration: '7hs', finished:25},
+       {name: 'Unit Testing', fullDuration: '7hs', finished:0},
+       {name: 'Unit Testing', fullDuration: '7hs', finished:0}
     ],
     inProgress: [
-      [ {name: 'Functional Testing', fullDuration: '7hs', finished:70}],
-      [ {name: 'Programming stuff', fullDuration: '10hs', finished:40}],
-      [ {name: 'Programming stuff', fullDuration: '10hs', finished:40}]
+       {name: 'Functional Testing', fullDuration: '7hs', finished:70},
+       {name: 'Programming stuff', fullDuration: '10hs', finished:40},
+       {name: 'Programming stuff', fullDuration: '10hs', finished:40}
     ],
     testing: [],
     done: [
-      [{name: 'Backend Development', fullDuration: '7hs', finished:100}]
+      {name: 'Backend Development', fullDuration: '7hs', finished:100}
     ]
   
   }
@@ -29,8 +29,9 @@ export class TasksComponent implements OnInit {
   ngOnInit() {
   }
   
-  copyToClipboard(jiraUrl) {
+  copyToClipboard(jiraUrl, pop) {
     jiraUrl.select();
-    document.execCommand('copy');  
+    document.execCommand('copy');
+    pop.show();
   }
 }

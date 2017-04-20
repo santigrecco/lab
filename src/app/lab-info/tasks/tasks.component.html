@@ -4,7 +4,7 @@
       JIRA URL
     </span>
     <input type="text" #jiraUrl [value]="lab.jiraUrl" readonly>
-    <button (click)="copyToClipboard(jiraUrl)">
+    <button (click)="copyToClipboard(jiraUrl, pop)" popover="Copied to Clipboard" placement="right" triggers="" #pop="bs-popover" container="body">
       Copy
     </button>
   </div>
@@ -14,53 +14,128 @@
         Pending
       </h5>
       <hr>
-        <blockquote *ngFor="let task of tasks.pending">
+        <blockquote *ngFor="let pendingTask of tasks.pending">
           <div class="task-content">
-            <h6 >Unit Testing</h6>
+            <h6>{{pendingTask.name}}</h6>
             <div class="bar">
               <div class="progress col-xs-10">
-                <div class="progress-bar full-duration" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                style="width:100%;">
-                </div>
+                <bs-progress>
+                  <bar [value]="100"></bar>
+                </bs-progress>
               </div>
               <span class="col-xs-2">
-                7hs
+                {{pendingTask.fullDuration}}
               </span>
             </div>
             <div class="bar">
               <div class="progress col-xs-10">
-                <div class="progress-bar done" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-                style="width:69%;">
-                </div>
-                <div class="progress-bar todo" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
-                style="width:29%;margin-left:2%">
-                </div>
+                <bs-progress>
+                  <bar [value]="pendingTask.finished" type="success"></bar>
+                  <bar [value]="100 - pendingTask.finished" type="warning"></bar>
+                </bs-progress>
               </div>
               <span class="col-xs-2">
-                70%
+                {{pendingTask.finished}}%
               </span>
             </div>
           </div>
         </blockquote>
-      
     </div>
     <div class="task-state">
       <h5>
         In Progress
       </h5>
       <hr>
+      <blockquote *ngFor="let task of tasks.inProgress">
+        <div class="task-content">
+          <h6>{{task.name}}</h6>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="100"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.fullDuration}}
+            </span>
+          </div>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="task.finished" type="success"></bar>
+                <bar [value]="100 - task.finished" type="warning"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.finished}}%
+            </span>
+          </div>
+        </div>
+      </blockquote>
     </div>
     <div class="task-state">
       <h5>
         Testing 
       </h5>
       <hr>
+      <blockquote *ngFor="let task of tasks.testing">
+        <div class="task-content">
+          <h6>{{task.name}}</h6>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="100"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.fullDuration}}
+            </span>
+          </div>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="task.finished" type="success"></bar>
+                <bar [value]="100 - task.finished" type="warning"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.finished}}%
+            </span>
+          </div>
+        </div>
+      </blockquote>
     </div>
     <div class="task-state">
       <h5>
         Done
       </h5>
       <hr>
+      <blockquote *ngFor="let task of tasks.done">
+        <div class="task-content">
+          <h6>{{task.name}}</h6>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="100"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.fullDuration}}
+            </span>
+          </div>
+          <div class="bar">
+            <div class="progress col-xs-10">
+              <bs-progress>
+                <bar [value]="task.finished" type="success"></bar>
+                <bar [value]="100 - task.finished" type="warning"></bar>
+              </bs-progress>
+            </div>
+            <span class="col-xs-2">
+              {{task.finished}}%
+            </span>
+          </div>
+        </div>
+      </blockquote>
     </div>
   </div>
 </div>
