@@ -116,18 +116,22 @@
                         text-decoration: underline;
                         cursor: pointer;
                     }
+                    .reply {
+                        height: 15px;
+                        cursor: pointer;
+                        &:hover {
+                            opacity: .8;
+                        }
+                    }
                     
                 }
             }
             .content {
-                height: 0px;
+                max-height: 0px;
                 width: 100%;
-                overflow-y: auto; 
-                -webkit-transition: height 0.3s ease-in-out;
-                -moz-transition: height 0.3s ease-in-out;
-                -o-transition: height 0.3s ease-in-out;
-                -ms-transition: height 0.3s ease-in-out;
-                transition: height 0.3s ease-in-out;
+                overflow-y: auto;
+                transition: all .3s ease-in-out;
+                
                 .messages-header {
                     display: flex;
                     margin-top: 10px;
@@ -149,9 +153,20 @@
                         padding: 5px 0px;
                         .author-data {
                             display: flex;
-                            flex-direction: column;
+                            flex-direction: row;
                             justify-content: center;
                             align-items: center;
+                            img {
+                                width: 30px;
+                                flex: 0;
+                            }
+                            .author-info {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                flex: 1;
+                            }
                             .user-pic {
                                 width: 50px;
                                 height: 50px;
@@ -161,8 +176,10 @@
                                 color: @primary;
                             }
                         }
+            
                         .message {
                             height: 100%;
+                            padding: 0px;
                         }
                         .likes {
                             display: flex;
@@ -195,7 +212,8 @@
 }
 
 .show  {
-    height: 300px !important;
+    // max-height must have fixed height because otherwise the transition wouolden't work
+    max-height: 1000px !important;
     overflow-y: auto;
 }
 .textarea {
@@ -205,6 +223,96 @@
     border: 1px solid @border-color;
 }
 
+.new-topic-modal {
+    position: absolute;
+    background: rgba(0,0,0,.7);
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content { 
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        min-width: 500px; 
+        height: 400px;
+        .blue-header {
+            .blue-gradient;
+            height: 10px;
+            width: 100%;
+        }
+        .message {
+            padding: 20px;
+            background: white; 
+            height: 400px;
+            width: 100%;
+            h3 {
+                color: @primary;
+            }
+            .form {
+                margin-top: 20px;
+                padding: 10px;
+                .row {
+                    margin-top: 20px;
+                }
+                label {
+                    color: @primary;
+                    padding: 0px;
+                    font-size: 20px;
+                }
+                textarea {
+                   height: 150px; 
+                }
+
+                .buttons-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px;
+                        button {
+                            width: ~'calc(50% - 5px)';
+                            font-weight: bold;
+                            &.cancel {
+                                .gradient;
+                                border: 1px solid @border-color;
+                                color: @border-color;
+                            }
+                            &.save{
+                                .blue-gradient;
+                                border: 1px solid @primary;
+                                color: white;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+
+    
+    
+}
 
 
 
+.new-message > img {
+    margin-left: 14px;
+}
+
+.delete-button {
+    cursor: pointer;
+    margin-right:7px;
+}
+
+
+//class for align the user-pic if the user doesn't have manager permissons
+.nomanager {
+    margin-left: 0px !important;
+}

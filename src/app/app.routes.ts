@@ -5,7 +5,10 @@ import { EditHomeComponent } from './edit-home/edit-home.component';
 import { LabsComponent } from './labs/labs.component';
 import { LoginComponent } from './login/login.component';
 import {  HomeComponent } from './home/home.component';
+import { MyProposalsComponent } from "app/my-proposals/my-proposals.component";
+
 import { Routes } from '@angular/router';
+import { JoinUnsuscribeReqComponent } from "app/join-unsuscribe-req/join-unsuscribe-req.component";
 
 
 export const APP_ROUTES:Routes = [
@@ -38,11 +41,19 @@ export const APP_ROUTES:Routes = [
     component: ProposeLabComponent
   },
   {
-    path: 'labs/proposed-labs/:lab',
+    path: 'labs/proposed-lab/:lab',
     component: LabInfoComponent
   },
   {
     path: 'labs',
     component: LabsComponent
+  },
+  {
+    path: 'profile/my-proposals',
+    component: MyProposalsComponent
+  },
+  {
+    path: 'profile/join-unsubscribe-requests',
+    component: JoinUnsuscribeReqComponent
   }
 ]

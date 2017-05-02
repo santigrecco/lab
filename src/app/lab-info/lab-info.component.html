@@ -4,34 +4,37 @@
   </span>
   <div class="header">
     <h3>{{lab.name}}</h3>
-    <button class="leave-btn" *ngIf="userData.rank === 'user'" (click)="leave()">
+    <button class="leave-btn" *ngIf="(userData.rank === 'user') && isMember()" (click)="leaveModal.show()">
       Leave
+    </button>
+    <button class="join-btn" *ngIf="(userData.rank === 'user') && !isMember()" (click)="joinModal.show()">
+      Join
     </button>  
     <button class="edit-btn" *ngIf="userData.rank === 'manager'" (click)="edit()">
       Edit
     </button>  
-    <button class="delete-btn" *ngIf="userData.rank === 'manager'" (click)="delete()">
+    <button class="delete-btn" *ngIf="userData.rank === 'manager'" (click)="deleteModal.show()">
       Delete
     </button>  
     
   </div>
 
   <div class="content">
-    <tabset #staticTabs class="tabset col-md-8 col-xs-10 col-lg-8">
-      <tab heading="Tasks" customClass="heading">
-        <app-tasks [lab]="lab"></app-tasks>
-      </tab>
+
+    <!--the tabset is set position initial because the new topic modal should be full screen -->
+
+    <tabset #staticTabs class="tabset col-md-8 col-xs-10 col-lg-8" style="position: initial;" [vertical]="smartphone()" [type]="getType()">     
       <tab heading="Project info" draggable="false" customClass="heading">
         <app-project-info [lab]="lab"></app-project-info>
       </tab>
       <tab heading="Repository" customClass="heading">
         <app-repository [lab]="lab"></app-repository>
       </tab>
-      <!--<tab heading="Tasks" customClass="heading">
-        <app-tasks></app-tasks>
-      </tab>-->
+      <tab heading="Tasks" customClass="heading">
+        <app-tasks [lab]="lab"></app-tasks>
+      </tab>
       <tab heading="Team" customClass="heading">
-        <app-team [lab]="lab"></app-team>
+        <app-team [lab]="lab" [userData]="userData"></app-team>
       </tab>
       <tab heading="Forum" customClass="heading">
         <app-forum [lab]="lab">
@@ -41,3 +44,52 @@
     
   </div>
 </div>
+
+
+<div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <p>Are you sure you want to remove this Lab? This action cannot be undone</p>
+            <div class="buttons">
+              <button class="btn btn-default">Yes</button>
+              <button class="btn btn-default" (click)="deleteModalCancel(deleteModal)">Cancel</button>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>
+
+<div bsModal #leaveModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <p>Are you sure you want to leave the Lab '{{lab.name}}'</p>
+            <div class="buttons">
+              <button class="btn btn-default" (click) = "leaveTeam(leaveModal)">Yes</button>
+              <button class="btn btn-default" (click)= "leaveModal.hide()">Cancel</button>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>
+
+<div bsModal #joinModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <p>Are you sure you want to join the Lab '{{lab.name}}'</p>
+            <div class="buttons">
+              <button class="btn btn-default" (click)="joinTeam(joinModal)">Yes</button>
+              <button class="btn btn-default" (click)="joinModal.hide()">Cancel</button>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>
+
+
+<app-chat></app-chat>

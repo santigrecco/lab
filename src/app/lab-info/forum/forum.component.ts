@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-forum',
@@ -7,12 +7,8 @@ import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 })
 export class ForumComponent implements OnInit {
   @Input() lab;
-  @ViewChild('textarea') textarea: ElementRef;
-  public userData = {
-    username: 'santiago.grecco',
-    id: 0,
-    img: './aUrl'  
-  }
+  
+
   public topics: any = [
     {
       name: 'a Topic',
@@ -20,12 +16,14 @@ export class ForumComponent implements OnInit {
         {
           author: 'someone',
           message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim labore eaque doloribus necessitatibus quae iure expedita animi quia quidem temporibus. Modi et, magnam fuga incidunt consectetur tempora aliquam facere rem?',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ] ,
+          date: new Date() 
         },
         {
           author: 'someone',
           message: 'a good message',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ],
+          date: new Date()  
         },
       ],
       views: 28,
@@ -35,16 +33,18 @@ export class ForumComponent implements OnInit {
     },
     {
       name: 'a Topic',
-      messages: [
+       messages: [
         {
           author: 'someone',
           message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim labore eaque doloribus necessitatibus quae iure expedita animi quia quidem temporibus. Modi et, magnam fuga incidunt consectetur tempora aliquam facere rem?',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ] ,
+          date: new Date() 
         },
         {
           author: 'someone',
           message: 'a good message',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ],
+          date: new Date()  
         },
       ],
       views: 28,
@@ -54,16 +54,18 @@ export class ForumComponent implements OnInit {
     },
     {
       name: 'a Topic',
-      messages: [
+       messages: [
         {
           author: 'someone',
           message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim labore eaque doloribus necessitatibus quae iure expedita animi quia quidem temporibus. Modi et, magnam fuga incidunt consectetur tempora aliquam facere rem?',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ] ,
+          date: new Date() 
         },
         {
           author: 'someone',
           message: 'a good message',
-          likes:[{user:'fakeUser', id: 7867} ]  
+          likes:[{user:'fakeUser', id: 7867} ],
+          date: new Date()  
         },
       ],
       views: 28,
@@ -72,15 +74,16 @@ export class ForumComponent implements OnInit {
       },
     }
   ]  
+  public newTopicModal: Boolean = false;
+  private userData = this.UserService.getUserData();
 
 
-  constructor() {}
+  constructor(@Inject('UserService') public UserService) {}
 
   ngOnInit() {
     this.topics.forEach(el => {
       el.show = false;
-    })
-    
+    });
       
   }
 
@@ -88,22 +91,50 @@ export class ForumComponent implements OnInit {
     topic.show = !topic.show
   }
 
-  send(topic, content) {
+  send(topic, content, textarea) {
     const { username } = this.userData;
-    const { innerHTML } = this.textarea.nativeElement;
+    const { innerHTML } = textarea;
     if(innerHTML !== '') {
       const newMessage = {
          author: username,
          message: innerHTML,
-         likes: []
+         likes: [],
+         date: new Date()
       }
       topic.messages.push(newMessage);
-      this.textarea.nativeElement.innerHTML = "";
+      textarea.innerHTML = "";
     } 
+    
   }
 
-  newTopic() {
+  newTopicModalToggle() {
+    this.newTopicModal = !this.newTopicModal;
+  }
+
+  newTopic(title, message) {
+    //regex for only whitespaces
+    // if (title.replace(/\s/g, '') === '' || message.replace(/\s/g, '') === '') return null;
+    const { username } = this.userData;
+    const newTopic = {
+      name: title,
+      messages: [{author: username, message: message.value, likes:[], date: new Date()}],
+      views:0,
+      author: {username: username},
+      show: false,
+    }
+    this.topics.push(newTopic);
+    this.newTopicModalToggle();
     
+  }
+
+  deleteMessage(message, messages) {
+    const index = messages.indexOf(message);
+    messages.splice(index, 1);
+  }
+
+  deleteTopic(topic, topics) {
+    const index = topics.indexOf(topic);
+    topics.splice(index, 1);
   }
   
 }

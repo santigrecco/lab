@@ -14,7 +14,13 @@
                 <a routerLink = "/labs" routerLinkActive = "active" class="btn">Labs</a>
             </li>
             <li *ngIf ="rank !== 'manager'">
-                <a routerLink = "/profile" routerLinkActive = "active" class="btn">Profile</a>
+                <div dropdown container="body" class="dropdown">
+                    <a [class.active]="routeActive('profile')" dropdownToggle class="btn dropdown-btn" >Profile</a>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                        <li role="menuitem" class="dropdown-menu-li" [class.dropdown-item-active]="routeActive('my-proposal')"><a class="dropdown-item" routerLink="profile/my-proposals">My Proposals</a></li>
+                        <li role="menuitem" class="dropdown-menu-li" [class.dropdown-item-active]="routeActive('join-unsubscribe-requests')"><a class="dropdown-item" routerLink="profile/join-unsubscribe-requests">Join / Unsuscribe Requests</a></li>
+                    </ul>
+                </div>
             </li>
             <ng-container *ngIf ="rank === 'manager'">
                 <li  *ngFor="let link of links.manager">
@@ -29,10 +35,27 @@
         </ul>
     </nav>
     <div class="right-panel" *ngIf="!mobile()">
-        <img src="assets/Bell Icon.svg" alt="Notifications" (click)="notiClick()">
+        <div class="bell-icon-container">
+            <div class="notifications">{{3}}</div>
+            <img src="assets/Bell Icon.svg" alt="Notifications" (click)="notiClick()">
+        </div>
         <img src="assets/Log Out.svg" alt="Log Out">
     </div>
     <div class="mobile-menu"  *ngIf="mobile()">
         <i #MobileMenu class="glyphicon glyphicon-menu-hamburger" (click)="mobileMenu(MobileMenu)"></i>
     </div>
 </div>
+
+<!--<div class="btn-group" dropdown container="body">
+  <button dropdownToggle type="button" class="btn btn-primary dropdownToggle">
+    Dropdown on Body <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
+</div>-->

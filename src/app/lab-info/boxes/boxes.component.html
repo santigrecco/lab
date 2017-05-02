@@ -8,8 +8,10 @@
     <div class="box col-xs-4 col-md-3">
       <h5><b>Active Members</b></h5>
       <ul>
-        <li *ngFor="let member of lab.likes">
-          {{member.name}}
+        <li class="member" *ngFor="let member of lab.team">
+          <span  *ngIf="member.status === 'active'">
+            {{member.name}}
+          </span>
         </li>
       </ul>
     </div>

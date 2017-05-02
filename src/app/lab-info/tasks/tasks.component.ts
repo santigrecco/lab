@@ -32,6 +32,11 @@ export class TasksComponent implements OnInit {
   copyToClipboard(jiraUrl, pop) {
     jiraUrl.select();
     document.execCommand('copy');
+
+    //show and automatically hide the popover 
     pop.show();
+    setTimeout(()=>{
+      pop.hide();
+    }, 700)
   }
 }

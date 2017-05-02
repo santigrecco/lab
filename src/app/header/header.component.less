@@ -1,3 +1,5 @@
+@import "../common";
+
 
 @nav-color: #3D80B7;
 .nav-dark-gradient {
@@ -44,6 +46,9 @@
           list-style: none;
           display: flex;
           li {
+              display: flex;
+              justify-content: center;
+              align-items: center;
               a {
                   font-size: 12px;
                   color: @nav-color;
@@ -66,7 +71,6 @@
                       box-shadow: none;
                   }
               }
-              
           }  
         }
     }
@@ -84,6 +88,32 @@
             &:hover {
                 cursor: pointer;
                 transform: scale(1.15);
+            }
+        }
+
+        .bell-icon-container {
+            position: relative;
+            .notifications {
+                position: absolute;
+                top: 7px;
+                right: 7px;
+                padding: 2px;
+                height: 10px;
+                width: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0px;
+                font-size: 10px;
+                font-weight: bold;
+                color: white;
+                border-radius: 50%;
+                background: red;
+                cursor: pointer;
+                z-index: 1000;
+                &:hover + img {
+                    transform: scale(1.15);
+                } 
             }
         }
     }
@@ -105,4 +135,53 @@
             }
         }
     }
+}
+
+
+
+// override bootstrap dropdown styles 
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background: transparent;
+    border-color: transparent;
+    color: white;
+}
+
+.dropdown.open>.dropdown-menu {
+    background: black !important;
+    color: white;
+}
+
+
+
+.dropdown-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #1A1A1A;
+    margin-top: 0px;
+    padding: 0px;
+    border-radius: 0px;
+}
+.dropdown-item {
+    color: @nav-color;
+    &:hover {
+        background: transparent;       
+        border-left: 4px;
+    }
+}
+.dropdown-menu-li {
+    width: 100%;
+    text-align: center;
+    &:hover {
+        a {
+            transform: scale(1.01);
+            color: white;
+        }
+    }
+}
+
+.dropdown-item-active {
+    border-left: 5px solid @green;
+    color: white;
 }

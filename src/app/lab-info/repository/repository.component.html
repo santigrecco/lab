@@ -13,8 +13,8 @@
     <div class="repo col-xs-12 col-md-6">
       <h4>URL</h4>
       <input type="text" #repository [value]="lab.repository" readonly>
-      <button class="btn" #copy (click)="copyToClipboard(repository)" popover="Copied to clipboard" placement="right"
-        triggers="focus"> Copy </button>
+      <button class="btn" #copy (click)="copyToClipboard(repository, pop)" popover="Copied to clipboard" placement="top"
+        triggers="" #pop="bs-popover"> Copy </button>
     </div>
 
   </div>

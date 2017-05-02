@@ -1,0 +1,29 @@
+
+<div class="my-proposals">
+    <h3>My Proposals</h3>
+    <hr>
+    <div class="content col-xs-12 col-md-10">
+        <div class="heading col-xs-12">
+            <span class="col-xs-4">Lab Name</span>
+            <span class="col-xs-2">Propose Date</span>
+            <span class="col-xs-2">Status</span>
+            <span class="col-xs-4">Manager Comments</span>  
+        </div>
+        <div class="proposed-labs col-xs-12" *ngFor="let lab of proposedLabs">
+            <span class="lab-name col-xs-4">{{lab.name}}</span>
+            <span class="col-xs-2">{{lab.proposalDate.getDate()}}/{{lab.proposalDate.getMonth()}}/{{lab.proposalDate.getFullYear()}}</span>
+            <b class="col-xs-2">{{lab.status}}</b>
+            <span class="col-xs-4">{{lab.managerComments}}</span>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+   
+
+</div>
+
+

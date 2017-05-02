@@ -1,0 +1,38 @@
+<div class="join-unsubscribe">
+  <h3>Join Requests</h3>
+  <hr>
+  <div class="content col-xs-12 col-md-10">
+        <div class="heading col-xs-12">
+            <span class="col-xs-3">Lab Name</span>
+            <span class="col-xs-2">Requested Date</span>
+            <span class="col-xs-2">Request Status</span>
+            <span class="col-xs-2">Lab Status</span>
+            <span class="col-xs-3">Manager Comments</span>  
+        </div>
+        <div class="join-requests col-xs-12" *ngFor="let request of joinRequests">
+            <span class="request-name col-xs-3">{{request.name}}</span>
+            <span class="col-xs-2">{{request.requestDate.getDate()}}/{{request.requestDate.getMonth()}}/{{request.requestDate.getFullYear()}}</span>
+            <b class="col-xs-2">{{request.requestStatus}}</b>
+            <b class="col-xs-2">{{request.labStatus}}</b>
+            <span class="col-xs-3">{{request.managerComments}}</span>
+        </div>
+    </div>
+  <h3>Unsubscribe Requests</h3>
+  <hr>
+  <div class="content col-xs-12 col-md-10">
+        <div class="heading col-xs-12">
+            <span class="col-xs-3">Lab Name</span>
+            <span class="col-xs-2">Requested Date</span>
+            <span class="col-xs-2">Request Status</span>
+            <span class="col-xs-2">Request Status</span>
+            <span class="col-xs-3">Manager Comments</span>  
+        </div>
+        <div class="join-requests col-xs-12" *ngFor="let request of joinRequests">
+            <span class="request-name col-xs-3">{{request.name}}</span>
+            <span class="col-xs-2">{{request.requestDate.getDate()}}/{{request.requestDate.getMonth()}}/{{request.requestDate.getFullYear()}}</span>
+            <b class="col-xs-2">{{request.requestStatus}}</b>
+            <b class="col-xs-2">{{request.labStatus}}</b>
+            <span class="col-xs-3">{{request.managerComments}}</span>
+        </div>
+    </div>
+</div>

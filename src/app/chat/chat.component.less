@@ -1,0 +1,126 @@
+@import "../common";
+
+.chat {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0px;
+    right: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    .header{
+        .blue-gradient;
+        height: 30px;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 5px 5px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: white;
+        font-weight: bold;
+        padding-left: 20px;
+    }
+    .chats {
+        .scrollbar;
+        background: white;
+        transition: all .5s ease;
+        height: 300px;
+        max-height: 0px;
+        display: flex;
+        padding: 0px;
+        margin: 0px;
+        .messages {
+            padding: 10px 5px 5px 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            ul {
+                list-style: none;
+                padding: 0px;
+                padding-right: 5px;
+                overflow: auto;
+                height: 85%;
+                .message {
+                    margin-bottom: 10px;
+                    overflow-y: auto;
+                    em {
+                        padding-left: 5px;
+                        color: @secondary;
+                        font-size: 10px;
+                    }
+                    .message-content {
+                        background: @light-grey;
+                        font-size: 12px;
+                        padding: 5px 10px;
+                        display: table;
+                        word-break: break-all;
+                    }
+
+                }
+                .own-message {
+                    display: flex;
+                    align-items: flex-end;
+                    flex-direction: column;
+                    .message-content {
+                        background: darken(@light-grey, 15%);
+                        word-break: break-word;
+                    }
+                }
+            }
+            .send-message {
+                .send-box {
+                    border: 1px solid @border-color;
+                    height: 25px;
+                    padding: 0px;
+                    display: flex;
+                    .send-input {
+                        border: 0px;
+                        height: 100%;
+                        width: 100%;
+                        background: transparent;
+                        outline: none;
+                        padding-left: 3px;
+                        padding-right: 25px; 
+                    }
+                    .send {
+                        height: 22px;
+                        width: 22px;
+                        position: relative;
+                        cursor: pointer;
+                        z-index: 1000;
+                        align-self: center;
+                        margin-right: 5px;
+                        &:hover {
+                            opacity: .8;
+                        }
+                    }
+                }
+                
+            }
+        }
+        .connected {
+            border-left: 1px solid @secondary;
+            height: 95%;
+            align-self: center;
+            overflow-y: auto;
+            ul {
+                list-style: none;
+                padding: 0px;
+                font-size: 12px;
+                font-weight: bold;
+                li {
+                    display: flex;
+                    align-items: center;
+                }
+                .green-circle {
+                    background-color: @green;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}   

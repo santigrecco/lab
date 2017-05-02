@@ -7,9 +7,10 @@ import { TabsModule } from 'ng2-bootstrap';
 import { PopoverModule } from 'ng2-bootstrap';
 import { AccordionModule } from 'ng2-bootstrap';
 import { ProgressbarModule } from 'ng2-bootstrap/progressbar';
+import { BsDropdownModule } from 'ng2-bootstrap';
+import { ModalModule } from 'ng2-bootstrap/modal';
 
-
-
+// custom component
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LabsComponent } from './labs/labs.component'
@@ -28,7 +29,13 @@ import { ForumComponent } from './lab-info/forum/forum.component';
 import { ProjectInfoComponent } from './lab-info/project-info/project-info.component';
 import { BoxesComponent } from './lab-info/boxes/boxes.component';
 
-
+// custom services 
+import { UserService } from './services/user.service';
+import { LabService } from './services/lab.service';
+import { MyProposalsComponent } from './my-proposals/my-proposals.component';
+import { ChatComponent } from './chat/chat.component';
+import { JoinUnsuscribeReqComponent } from './join-unsuscribe-req/join-unsuscribe-req.component';
+import { BottomFogComponent } from './bottom-fog/bottom-fog.component';
 
 
 
@@ -57,7 +64,11 @@ import { BoxesComponent } from './lab-info/boxes/boxes.component';
     TeamComponent,
     RepositoryComponent,
     ForumComponent,
-    BoxesComponent
+    BoxesComponent,
+    MyProposalsComponent,
+    ChatComponent,
+    JoinUnsuscribeReqComponent,
+    BottomFogComponent
   ],
   imports: [
     BrowserModule,
@@ -67,9 +78,14 @@ import { BoxesComponent } from './lab-info/boxes/boxes.component';
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     AccordionModule.forRoot(),
-    ProgressbarModule.forRoot()
-  ],
-  providers: [],
+    ProgressbarModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
+    ],
+  providers: [
+    {provide: 'UserService' , useClass: UserService},
+    {provide: 'LabService' , useClass: LabService}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 
 @Component({
@@ -8,67 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lab-info.component.less']
 })
 export class LabInfoComponent implements OnInit {
-  lab: any = {
-    name: '',
-    image: {
-      name: '',
-      src: 'assets/programming-image.jpg'
-    },
-    tags: [
-      'HTML',
-      'CSS',
-      'JS',
-      'Angular',
-      'HTML',
-      'CSSss',
-      'JS',
-      'Angular',
-      'HTML',
-      'CSS',
-      'JS',
-      'Angular'
-    ],
-    repository: 'http://www.github.com/somerepo',
-    jiraUrl:'jira.globant.com/lab',
-    status: 'published',
-    activeMembers: [
-      {name: 'Natalia'},
-      {name: 'Pablo'},
-      {name: 'German'},
-    ],
-    likes: [
-        {name: 'Natalia'},
-        {name: 'Pablo'},
-        {name: 'German'},
-        
-    ],
-    wouldJoin: [
-        {name: 'Natalia'},
-        {name: 'Pablo'},
-        {name: 'German'}
-    ],
-    instructions: [
-      'git clone http://www.github.com/somerepo',
-      'cd somerepo',
-      'npm i',
-      'ng serve'
-    ],
-    team:[
-      {name: 'chuck norris', role:'owner', status:'active'},
-      {name: 'jon snow', role:'member', status: 'unsuscribed'},
-      {name: 'tyrion lannister', role:'member', status: 'active'},
-      {name: 'chuck norris again', role:'owner', status: 'unsuscribed'}
-    ]
+  
+  // userData = {
+  //   rank: 'manager'
+  // }
+  public userData = this.UserService.getUserData();
+  public lab = this.LabService.getLab(123);
+  public windowWidth: Number = window.innerWidth;
 
-  }
-  userData = {
-    rank: 'manager'
-  }
-  constructor(private route: ActivatedRoute) {
+
+  constructor( private route: ActivatedRoute, 
+    @Inject('UserService') private UserService,
+    @Inject('LabService') private LabService ) {
+
     this.getLab();
    }
 
   ngOnInit() {
+    window.addEventListener('resize', (e)=>{
+      this.windowWidth = window.innerWidth;
+    })        
   }
   
   leave() {
@@ -77,13 +36,41 @@ export class LabInfoComponent implements OnInit {
 
   getLab() {
     this.lab.name = this.route.snapshot.params['lab'];
-
   }
 
   edit(){}
   
   delete(){}
 
+  getType() {
+    return this.smartphone() ? 'pills' : 'tabs';
+  }
+  smartphone() {
+    return this.windowWidth < 600;
+  }
+
+  deleteModalCancel(deleteModal) {
+    deleteModal.hide();
+  }
+
+  joinTeam(joinModal) {
+    this.lab.team.push(this.userData)
+    joinModal.hide();
+  }
+
+  leaveTeam(joinModal) {
+    const { team } = this.lab;
+    const index = team.indexOf(this.userData);
+    team.splice(index, 1);
+    joinModal.hide();
+  }
+
+  isMember() {
+    const { id } = this.userData;
+    const { team } = this.lab;
+    const index = team.map(el => {return el.id}).indexOf(id);    
+    return index !== -1;
+  }
 }
 
 

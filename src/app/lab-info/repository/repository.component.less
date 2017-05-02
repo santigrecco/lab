@@ -64,7 +64,7 @@
                 border: 1px solid @border-color;
                 li {
                     padding-left: 5px;
-                    height: 20px;
+                    min-height: 20px;
                 }
                 li:nth-child(odd) {
                     background: #ccc;
@@ -96,5 +96,23 @@
             }
         }
 
+    }
+}
+
+@media @smartphone {
+    .main-content {
+        padding: 0px !important;
+    }
+    .repo {
+        font-size: .75em;
+    }
+    .btn {
+        padding: 3px 5px;
+        font-size: .8em;
+    }
+    .instructions {
+        ul {
+            font-size: .8em;
+        }
     }
 }

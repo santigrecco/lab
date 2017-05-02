@@ -1,6 +1,11 @@
+@import '../common';
 @principal: #2980b9;
 
+
+
 .labs {
+  .view;
+  width: 100%;
   hr {
     border-color: grey;
     border-width: 0.2px;
@@ -8,27 +13,26 @@
   ul{
     list-style: none;
   }
-  width: 100%;
-  height: 90vh;
-  .create-lab {
-    padding-top: 50px;
+  .propose-lab {
+    padding: 50px 10px 0px 0px;
     position: relative;
     width: 100%;
     display: flex;
-    .create-lab-btn {
-      position: absolute;
-      left: 75%;
-      background-color: transparent;
-      border: 2px solid @principal;
-      border-radius: 4px;
-      color: @principal;
-      padding: 5px 10px;
+    justify-content: flex-end;
+    .propose-lab-btn {
+      width: 150px;
+      cursor: pointer;
+      transition: .5s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   .show-labs {
     padding-left: 50px;
     padding-top: 10px;
     .labs-list {
+      position: relative;
       .list {
         transition: 1s;
         display: flex;
@@ -42,9 +46,30 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          background: white;
           img {
-            height: 200px;
-            width: 400px;
+              height: 200px;
+              width: 400px;
+            }
+          .lab-data {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;       
+            .info {
+              color: @primary;
+              text-align: right;
+              cursor: pointer;
+              align-self: flex-end;
+              margin-right: 20px;
+            }
+            h3 {
+              color: @primary;
+              margin-top: 5px;
+              width: 100%;
+              text-align: left;
+              text-transform: uppercase;
+            }
           }
         }
 
@@ -58,9 +83,10 @@
 
   .slide-arrow {
     width: 80px;
+    // height: 100px;
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 50%;
+    bottom: 50%;
     right: 10px;
     display: flex;
     justify-content: center;
@@ -70,12 +96,53 @@
   .slide-arrow-back {
     width: 80px;
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 50%;
+    bottom: 50%;
     left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+}
+
+.fixedbtn {
+  position: fixed;
+  top: 50px;
+
+}
+
+
+@media @smartphone {
+  .labs {
+    font-size: 1em;
+    h2 {
+      font-size: 2em;
+    }
+  }
+  .propose-lab {
+    padding-top: 10px !important;
+  }
+  .show-labs {
+    padding: 5px !important;
+  }
+  .lab {
+    min-width: 300px;
+    h3 {
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+  .lab-img {
+      width: 100% !important;
+      height: auto;
+  }
+  .list {
+    overflow-x: auto !important;
+  }
+  .slide-arrow, .slide-arrow-back {
+      display: none !important;
   }
 }

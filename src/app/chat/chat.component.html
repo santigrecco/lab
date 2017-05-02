@@ -1,0 +1,29 @@
+
+<div class="chat">
+  <div class="header" (click)="toggleChats(chats)"> Chat </div>
+  <div class="chats" #chats>
+    <div class="messages col-xs-12 col-md-8" [class.show]="show">
+      <ul>
+        <li class="message" [class.own-message]="ownMessage(message)" *ngFor="let message of chat.messages">
+          <em>{{message.author.name}}</em>
+          <div class="message-content" >
+            <span [innerHTML]="message.message"></span>
+          </div>
+        </li>
+      </ul>
+      <div class="send-message">
+        <div class="send-box col-xs-12">
+          <input type="text" class="send-input" #sendMessage (keyup)="keyup($event ,sendMessage)">
+          <img src="assets/Chat Send Message button.svg" class="send" alt="CLICK" (click)="sendButton(sendMessage)">
+        </div>
+      </div>
+    </div>
+    <div class="connected col-xs-12 col-md-4" [class.show]="show">
+      <ul>
+        <li *ngFor="let user of chat.connected">
+          <span class="green-circle"></span>{{user.name}} {{user.lastname}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

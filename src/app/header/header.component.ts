@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-  @Input() rank;
   links: Object = {
     labOwner:[
       {name: 'Requests', path: '/requests'},
@@ -16,13 +16,17 @@ export class HeaderComponent implements OnInit {
       {name: 'Users', path: '/users'},
       {name: 'Requests', path: '/requests'},
       {name: 'Tags', path: '/tags'},
-      {name: 'Reports', path: '/reports'}
+      {name: 'Reports', path: '/reports'},
+      {name: 'Security', path: '/security'}
     ]
   }
   windowWidth: Number = document.body.clientWidth;    
   mobileMenuActive: Boolean = false;
+  private userData: any = this.UserService.getUserData();
+  // public rank = this.userData.rank;
+  public rank = 'labOwner'
 
-  constructor() { }
+  constructor(private location: Location, @Inject('UserService') private UserService) { }
 
   ngOnInit() {
   }
@@ -32,7 +36,6 @@ export class HeaderComponent implements OnInit {
   }
   
   notiClick() {
-    console.log(this.windowWidth);
   }
 
   mobile() {
@@ -50,6 +53,11 @@ export class HeaderComponent implements OnInit {
       this.mobileMenuActive = !this.mobileMenuActive;
       menu.classList.remove('active');
     }
+  }
+
+  routeActive(route) {
+    const path = this.location.path();
+    return path.indexOf(route) !== -1;
   }
 
 }

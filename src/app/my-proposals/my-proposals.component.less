@@ -1,0 +1,63 @@
+@import "../common";
+
+.my-proposals {
+    .gradient;
+    .view;
+    padding: @general-padding;
+    h3 {
+        font-weight: bold;
+        color: @primary;
+        margin-left: 20px;
+        margin-bottom: 0px;
+    }
+    hr {
+        width: 100%;
+        background-color: @primary;
+        height: 1px;
+    }
+    .content {
+        background: white;
+        min-height: 400px;
+        align-self: center;
+    }
+    .heading {
+        padding: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid @border-color;
+    }
+    .proposed-labs {
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        .lab-name {
+            color: @primary;
+            font-weight: bold;
+        }
+    }
+}
+
+@media @smartphone {
+    .my-proposals {
+        padding: 10px;
+        padding-bottom: 30px;
+    }
+    h3 {
+        font-size: 1em;
+    }
+    .heading {
+        font-size: .8em;
+        padding: 10px 0px !important;
+        span {
+            text-align: center;
+        }
+    }
+    .content {
+        padding: 0px;
+    }
+    .proposed-labs {
+        font-size: .8em;
+        text-align: center;
+        padding: 10px 0px !important;
+    }
+}
+

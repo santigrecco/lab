@@ -7,9 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
   @Input() lab;
-  public userData = {
-     rank: 'user'
-   }
+  @Input() userData;
+  public showNewMemberModal = false;
+
+
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +19,21 @@ export class TeamComponent implements OnInit {
   deleteMember(member) {
     const index = this.lab.team.indexOf(member);
     this.lab.team.splice(index, 1);
+  }
+
+  toggleNewMemberModal() {
+    this.showNewMemberModal = !this.showNewMemberModal;
+  }
+  addMember(user, role) {
+    if(user.replace(/\s/g, '') !== '' && user.replace(/\s/g, '') !== '') {
+      const newMember = {
+        name: user,
+        role: role,
+        status: 'unsubscribed'
+      }
+      this.lab.team.push(newMember);
+      this.toggleNewMemberModal();
+    }
     
   }
 }

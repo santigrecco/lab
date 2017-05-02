@@ -6,7 +6,7 @@
       <li>Views</li>
       <li>Author</li>
       <li class="important-heading new-topic">
-        <button class="btn btn-info" (click)="newTopic()">
+        <button class="btn btn-info" (click)="newTopicModalToggle()">
           New Topic
         </button>
       </li>
@@ -18,6 +18,7 @@
       <div class="heading">
         <ul>
           <li (click)="openContent(topic)">
+            <img src="" alt="X" class="delete-button" (click)="deleteTopic(topic, topics)" *ngIf="userData.rank === 'manager'">
             {{topic.name}}
           </li>
           <li>
@@ -30,7 +31,8 @@
             {{topic.author.username}}
           </li>
           <li>
-            <img src="" alt="img">
+            <img src="assets/Reply Button.svg" (click)="openContent(topic)" class="reply" alt="img" *ngIf="!topic.show">
+            <img src="assets/Reply button Toggle.svg" (click)="openContent(topic)" class="reply" alt="img" *ngIf="topic.show">
           </li>
           <li>
           </li>
@@ -45,22 +47,28 @@
           </div>
           <ul class="messages-list">
             <li>
-              <div class="col-xs-3 author-data">
-                <img class="user-pic" src="assets/user-silhouette.png" alt="user">
+              <div class="col-xs-3 author-data new-message">
+                <img class="user-pic" [class.nomanager]="userData.rank != 'manager'" src="assets/Forum Person Silhouette.svg" alt="user">
               </div>
               <div #textarea contenteditable="true" name="message" id=""cols="10" class=" textarea col-xs-7"></div>
               <div class="col-xs-2 send-button">
-                <button class="btn btn-success green-gradient" (click)="send(topic, content)">
+                <button class="btn btn-success green-gradient" (click)="send(topic, content, textarea)">
                   Send
                 </button>
               </div>
             </li>
-            <li *ngFor="let message of topic.messages">
-              <div class="col-xs-3 author-data">
-                <img src="assets/user-silhouette.png" class="user-pic" alt="user">  
-                <span>{{message.author}}</span>         
+            <li *ngFor="let message of topic.messages" >
+              <div class="col-xs-3 author-data" >
+                <img src="" alt="X" (click)="deleteMessage(message, topic.messages)" class="delete-button" *ngIf="userData.rank === 'manager'">
+                <div class="author-info"> 
+                  <img src="assets/Forum Person Silhouette.svg" class="user-pic" alt="user">   
+                  <span>{{message.author}}</span>
+                </div>
               </div>
-              <div class="col-xs-7 message" [innerHTML]="message.message"> </div>
+              <div class="message-info col-xs-7">
+                <b class="col-xs-12">{{message.date.getDate()}}/{{message.date.getMonth()}}/{{message.date.getFullYear()}}</b>
+                <div class="col-xs-12 message" [innerHTML]="message.message"></div>
+              </div>
               <div class="col-xs-2 likes">
                 <img src="assets/Hand like.svg" alt="likes">
                 <span>{{message.likes.length}}</span>
@@ -71,5 +79,37 @@
       </div>
       <hr>
     </div>
+  </div>
+</div>
+
+
+<div *ngIf="newTopicModal" class="new-topic-modal">
+  <div class="content">
+    <div class="blue-header"></div>
+    <div class="message">
+      <h3>New Topic</h3>
+      <div class="form">
+        <div class="row col-xs-12">
+          <label for="title" class="col-md-6">Title</label>
+          <input type="text" class="col-md-6" #title id="title">
+        </div>
+        <div class="row col-xs-12">
+          <label for="message" class="col-md-6">Message</label>
+          <textarea name="message" id="message" #message class="col-md-6"></textarea>
+        </div>
+        <div class="row buttons-container col-xs-12">
+          <div class="buttons col-xs-8 col-md-6">
+            <button (click)="newTopicModalToggle()" class="btn cancel">
+              Cancel
+            </button>
+            <button (click)="newTopic(title.value, message)" class="btn save">
+              Save
+            </button>
+          </div>
+                   
+        </div>   
+      </div>
+    
+    
   </div>
 </div>

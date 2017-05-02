@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.57 16.34">
+    <defs>
+        <style>
+            .cls-1{
+                stroke:#666666;
+                stroke-miterlimit:10;
+                stroke-width:.5px;
+                fill: #DDDDDD;
+
+                }
+        </style>
+        <linearGradient id="linear-gradient" x1=".31" x2="19.32" y1="7.82" y2="7.82" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7ac943"/>
+            <stop offset=".26" stop-color="#7cc93f"/>
+            <stop offset=".5" stop-color="#83c935"/>
+            <stop offset=".72" stop-color="#8fc922"/>
+            <stop offset=".94" stop-color="#9fc909"/>
+            <stop offset="1" stop-color="#a5c900"/>
+        </linearGradient>
+    </defs>
+    <title>
+        Asset 1Reply button
+    </title>
+    <g id="Layer_2" data-name="Layer 2">
+        <path id="Capa_1" d="M10.63.4l8.43 6.9a.65.65 0 0 1 0 1l-8.43 6.9q-.26.21-.44.13t-.19-.39v-4.7a16.37 16.37 0 0 0-2.94.32 15.22 15.22 0 0 0-2.75.84 8.09 8.09 0 0 0-2.38 1.5 6.86 6.86 0 0 0-1.62 2.19A16.13 16.13 0 0 1 .75 12a10.32 10.32 0 0 1 1.09-2.7 8.14 8.14 0 0 1 1.82-2.22 8.6 8.6 0 0 1 2.7-1.48A13.17 13.17 0 0 1 10 4.92V.69q0-.34.19-.42t.44.13z" class="cls-1" data-name="Capa 1"/>
+    </g>
+</svg>

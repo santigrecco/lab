@@ -100,4 +100,77 @@
 }
 
 
+.new-member-modal {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .new-member {
+        background: white;
+        height: 350px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        .header {
+            height: 10px;
+            padding: 0px;
+        }
+        .new-member-form {
+            padding: 20px;
+            h3 {
+                color: @primary;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+            .row {
+              margin: 15px;
+              display: flex;
+              justify-content: space-between;
+              label {
+                color: @primary;
+                font-weight:bold;
+                }  
+            }
+            
+            .new-member-buttons {
+                display: flex;
+                justify-content: flex-end;
+                .buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0px;
+                    margin-top: 30px;
+                    button {
+                        width: ~"calc(50% - 10px)";
+                        &.save {
+                            .blue-gradient;
+                            color: white;
+                            border: 1px solid @primary;
+                        }
+                        &.cancel {
+                            .gradient;
+                            border: 1px solid @border-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media @smartphone {
+    .add-member-btn {
+        font-size: .7em;
+        b {
+            font-size: .7em;
+        }
+    }
+}
 

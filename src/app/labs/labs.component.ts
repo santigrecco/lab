@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./labs.component.less']
 })
 export class LabsComponent implements OnInit {
+  @ViewChild('Element') public element;
+
 
   labs = [
     {
@@ -72,27 +74,24 @@ export class LabsComponent implements OnInit {
     const scrolled = list.offsetWidth + list.scrollLeft;
     return !(maxScroll === scrolled)
   }
-
-  @ViewChild('list') list: ElementRef
+  public isSmartPhone = window.screen.width < 700;
+  
   constructor() {
-
+    
   }
 
   ngOnInit() {
   }
 
 
-  slideNext() {
-    const element = this.list.nativeElement;
-    this.scrollToLeft(element, 400, 300);
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    // console.log(w);
-    console.log(element.scrollWidth)
-    console.log(element.offsetWidth + element.scrollLeft)
+  slideNext(list) {
+     const { offsetWidth } = this.element.nativeElement;
+     this.scrollToLeft(list, offsetWidth, 300);
+    
   }
-  slideBack() {
-    const element = this.list.nativeElement;
-    this.scrollToLeft(element, -400, 300);
+  slideBack(list) {
+     const { offsetWidth } = this.element.nativeElement;
+     this.scrollToLeft(list, -offsetWidth , 300);
   }
 
   scrollToLeft(element, scroll, duration) {
@@ -105,4 +104,10 @@ export class LabsComponent implements OnInit {
     }, 10)
 
   }
+
+  isScrollable(LabsView) {
+    const {offsetHeight, scrollHeight} = LabsView;
+    return offsetHeight === scrollHeight
+  }
+  
 }

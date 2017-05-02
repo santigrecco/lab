@@ -1,28 +1,59 @@
-<div class="labs">
-  <div class="create-lab">
-    <button class="create-lab-btn">
-      CREATE LAB
-    </button>
+<div class="labs" #LabsView>
+  <div class="propose-lab">
+    <img src="assets/Propose Lab button.svg" class="propose-lab-btn" routerLink="propose-lab" alt="Propose Lab">
   </div>
-  <section class="proposed-labs">
+  <section class="show-labs">
     <h2>
-      Proposed Labs
+      My Labs
     </h2>
     <hr>
     <div class="labs-list">
-      <ul class="list" #list >
-        <div *ngIf="isScrollableLeft(list)" class="slide-arrow-back" (click) = "slideBack()">
+      <ul class="list" #MyLabsList >
+        <div *ngIf="isScrollableLeft(MyLabsList)" class="slide-arrow-back" (click) = "slideBack(MyLabsList)">
           <img src="assets/back.png" alt="back">
         </div>
-        <li *ngFor="let lab of labs" class="lab" >
-          <img [src]="lab.img" alt="">
-          <b>{{lab.title}}</b>
-          <p>{{lab.description}}</p>
+        <li *ngFor="let lab of labs" class="lab" #Element>
+          <img [src]="lab.img" alt="" class="lab-img">
+          <div class="lab-data">
+            <h3>{{lab.title}}</h3>
+            <p>{{lab.description}}</p>
+            <a class="info">+info</a>  
+          </div>  
         </li>
-        <div *ngIf="isScrollableRight(list)" class="slide-arrow" (click) = "slideNext()">
+        <div *ngIf="isScrollableRight(MyLabsList)" class="slide-arrow" (click) = "slideNext(MyLabsList)">
           <img src="assets/next.png" alt="next">
         </div>
       </ul>
     </div>
   </section>
+  <section class="show-labs">
+    <h2>
+      Proposed labs
+    </h2>
+    <hr>
+    <div class="labs-list">
+      <ul class="list" #Proposed>
+        <div *ngIf="isScrollableLeft(Proposed)" class="slide-arrow-back" (click) = "slideBack(Proposed)">
+          <img src="assets/back.png" alt="back">
+        </div>
+        <li *ngFor="let lab of labs" class="lab" >
+          <img [src]="lab.img" alt="" class="lab-img">
+          <div class="lab-data">
+            <h3>{{lab.title}}</h3>
+            <p>{{lab.description}}</p>
+            <a class="info">+info</a>  
+          </div>  
+        </li>
+        <div *ngIf="isScrollableRight(Proposed)" class="slide-arrow" (click) = "slideNext(Proposed)">
+          <img src="assets/next.png" alt="next">
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  
 </div>
+
+
+
+

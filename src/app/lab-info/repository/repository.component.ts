@@ -16,9 +16,15 @@ export class RepositoryComponent implements OnInit {
     }
   }
 
-  copyToClipboard(repository) {
+  copyToClipboard(repository, pop) {
     repository.select();
     document.execCommand('copy');
+
+    //show and automatically hide the popover 
+    pop.show();
+    setTimeout(()=>{
+      pop.hide();
+    }, 700)
   }
 
 }

@@ -1,0 +1,62 @@
+@import "../common";
+
+.join-unsubscribe {
+    .view;
+    padding: @general-padding;
+    h3 {
+        font-weight: bold;
+        color: @primary;
+        margin-left: 20px;
+        margin-bottom: 0px;
+    }
+    .heading {
+        padding: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid @border-color;
+    }
+    hr {
+        width: 100%;
+        background-color: @primary;
+        height: 1px;
+    }
+    .content {
+        background: white;
+        min-height: 400px;
+        align-self: center;
+    }
+    .join-requests {
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        .lab-name {
+            color: @primary;
+            font-weight: bold;
+        }
+    }
+}
+
+@media @smartphone {
+    .join-unsubscribe  {
+        padding: 10px;
+        padding-bottom: 30px;
+    }
+    h3 {
+        font-size: 1em;
+    }
+    .heading {
+        font-size: .8em;
+        padding: 10px 0px !important;
+        span {
+            text-align: center;
+        }
+    }
+    .content {
+        padding: 0px;
+    }
+    .join-requests {
+        font-size: .8em;
+        text-align: center;
+        padding: 10px 0px !important;
+    }
+
+}
