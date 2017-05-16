@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@import "../../common";
 @smartphone: ~"screen and (max-width: 700px)";
 
 @primary: #003366;
@@ -80,6 +81,7 @@
                     button {
                         .blue-gradient;
                         border: 1px solid @primary;
+                        cursor: pointer;
                         &:hover {
                             opacity: .8;
                         }
@@ -315,4 +317,95 @@
 //class for align the user-pic if the user doesn't have manager permissons
 .nomanager {
     margin-left: 0px !important;
+}
+
+
+.modal-styles;
+.common-modal {
+    .modal-content {
+        height: auto !important;
+        max-width: 600px !important;
+        width: 100%;
+    }
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.new-topic-modal {
+    .common-modal;
+    display: none;
+    .modal-content {
+        height: auto !important;
+    }
+    h4, label {
+        color: @primary;
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+    button {
+        text-shadow: none;
+    }
+    .add {
+        .blue-gradient;
+        border: 1px solid @primary;
+        color: white;
+        text-shadow: none !important;
+    }
+    .cancel {
+        .gradient;
+        border: 1px solid @border-color;
+        color: @border-color;
+    }
+
+    .form {
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            label {
+                i {
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+            .message {
+                resize: none;
+                min-height: 150px;
+            }
+            &.errors {
+                color: red;
+                padding-left: 50%;
+            }
+        }
+             
+    }
+    .buttons {
+        padding-left: 50%;
+        display: flex;
+        justify-content: space-between !important;
+        .cancel, .add {
+            width: ~"calc(50% - 10px)";
+            margin: 0px;
+        }
+
+    }
+}
+
+@media @smartphone {
+
+    .new-topic-modal {
+        width: auto;
+        .modal-body {
+            flex-wrap: wrap;
+            padding: 10px;
+            h4 {
+                margin: 10px 0px;
+            }
+        }
+        .form-row {
+            flex-wrap: wrap;
+        }
+    }
 }

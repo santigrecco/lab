@@ -144,13 +144,27 @@
 
 @media @smartphone {
     .lab-info {
+        .breadcrumb {
+            padding-left: 5px;
+        }
         .header {
+            flex-wrap: wrap-reverse;
             h3 {
-                margin-left: ~'calc(100% / 12)'
+                margin-left: 10px;
+                width: 100%;
+            }
+
+            button, .join-btn, .delete-btn, .edit-btn {
+                padding: 3px 7px;
+                max-height: 50px;
+                font-size: 1em;
+                margin-left: 10px;
             }
         }
     }
-
+    .tabset {
+        width: 100%;
+    }
     .main-content {
         padding: 0px;
     }
@@ -160,7 +174,6 @@
 
 
 // Modal Bootstrap config
-
 .modal.fade.in {
     display: flex !important;
     align-items: center;
@@ -178,11 +191,18 @@
     }
     .modal-content {
         border-radius: 0px;
+        height: 200px;
+        .modal-body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
     }
     .buttons {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        flex: 1;
     }
 }
 
@@ -191,4 +211,5 @@
     .modal-dialog.modal-sm {
         opacity: 0;
     }
-}
+}   
+

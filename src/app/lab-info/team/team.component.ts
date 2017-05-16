@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-team',
@@ -8,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TeamComponent implements OnInit {
   @Input() lab;
   @Input() userData;
+  // public userData = this.UserService.getUserData();
   public showNewMemberModal = false;
 
 
-  constructor() { }
+  constructor(@Inject('UserService') private UserService) { }
 
   ngOnInit() {
   }

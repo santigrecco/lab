@@ -22,9 +22,10 @@ export class HeaderComponent implements OnInit {
   }
   windowWidth: Number = document.body.clientWidth;    
   mobileMenuActive: Boolean = false;
-  private userData: any = this.UserService.getUserData();
+  private userData = this.UserService.getUserData();
   // public rank = this.userData.rank;
   public rank = 'labOwner'
+
 
   constructor(private location: Location, @Inject('UserService') private UserService) { }
 

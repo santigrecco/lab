@@ -36,6 +36,8 @@ import { MyProposalsComponent } from './my-proposals/my-proposals.component';
 import { ChatComponent } from './chat/chat.component';
 import { JoinUnsuscribeReqComponent } from './join-unsuscribe-req/join-unsuscribe-req.component';
 import { BottomFogComponent } from './bottom-fog/bottom-fog.component';
+import { TextEditorComponent } from './text-editor/text-editor.component';
+import { UsersComponent } from './users/users.component';
 
 
 
@@ -68,7 +70,9 @@ import { BottomFogComponent } from './bottom-fog/bottom-fog.component';
     MyProposalsComponent,
     ChatComponent,
     JoinUnsuscribeReqComponent,
-    BottomFogComponent
+    BottomFogComponent,
+    TextEditorComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

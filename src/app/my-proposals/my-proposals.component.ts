@@ -27,4 +27,5 @@ export class MyProposalsComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }

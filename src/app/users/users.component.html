@@ -1,0 +1,96 @@
+<div class="users">
+  <h3> Users </h3>
+  <hr class="col-xs-12">
+
+  <div class="container col-xs-12">
+    <div class="content col-xs-11 col-md-8 col-lg-6">
+      <table class="col-xs-12">
+        <tr class="table-header">
+          <th>
+            User Name
+          </th>
+          <th>
+            Email Address
+          </th>
+          <td class="buttons">
+            <button class="add-user btn btn-default" (click)="addUser.show()">Add User</button>
+            <button class="upload btn btn-default" (click)="upload.show()">Upload</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of usersList" class="user-data">
+          <td class="username">
+            {{user.userName}}
+          </td>
+          <td class="email">
+            {{user.email}}
+          </td>
+        </tr>
+
+        
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div bsModal #addUser="bs-modal" class="add-user-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <h4>Add User</h4>
+            <div class="form">
+              <div class="form-row">
+                <label for="username" class="col-xs-12 col-md-6">User Name <i>*</i></label>
+                <input type="text" id="username" class="modal-user-input col-xs-12 col-md-6"  #username>
+              </div>
+              <div class="form-row">
+                <label for="email-adress" class="col-xs-12 col-md-6">Email Adress <i>*</i></label>
+                <input type="text" id="email-adress" class="modal-user-input col-xs-12 col-md-6" #email>
+              </div>
+              <div class="errors form-row" *ngIf="actualError != ''">
+                {{actualError}}
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="cancel btn btn-default" (click)="addUser.hide()">Cancel</button>
+              <button class="add btn btn-default" (click)="addUserClick(username, email, addUser)" autofocus>Add</button>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>
+
+<div bsModal #upload="bs-modal" class="upload-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <h4>Add User</h4>
+            <div class="form">
+              <div class="form-row">
+                <label for="file" class="col-xs-12 col-md-6">File</label>
+                <div class="file-group">
+                  <input type="text" [value]="fileName"  name="image-field" readonly class="image-field" >
+                  <label for="image" (click)="browseClick()">
+                    Browse
+                  </label>
+                </div>
+                 <input type="file" id="image" #file (change)="fileValueChange(file)" name="image" class="hide">
+              </div>
+
+              <div class="errors form-row" *ngIf="actualError != ''">
+                {{actualError}}
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="cancel btn btn-default" (click)="upload.hide()">Cancel</button>
+              <button class="add btn btn-default" (click)="uploadClick(upload)" autofocus>Add</button>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>

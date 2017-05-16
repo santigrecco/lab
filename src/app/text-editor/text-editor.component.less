@@ -1,0 +1,176 @@
+@import "../common";
+
+.text-editor {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    .buttons {
+        display: flex;
+
+        button {
+            flex: 1;
+            height: 30px;
+            min-width: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: 1px solid @primary;
+            border-bottom: none;
+            border-right: none;
+            transition: .3s;
+            border-radius: 0px;
+            outline: none;
+            &:hover {
+                background: @primary;
+                color: white;
+                text-shadow: none;
+            }
+            &:active {
+                background: @primary;
+                color: white;
+                text-shadow: none;
+            }
+            &:nth-last-child(1) {
+                border-right: 1px solid @primary; 
+            }
+            &.active-tag {
+                background: @primary;
+                color: white;
+                text-shadow: none;
+            }
+
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+        }
+        .italic {
+            font-style: italic;
+            font-family: cursive;   
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    }
+
+    .font-select {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        top: 30px;
+        border: 1px solid @secondary;
+        // transition: .3s ease;
+        border: 1px solid @primary;
+    }
+    .font-option {
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+        min-width: 150px;
+        transition: .5s;
+        border: 0px;
+        &:hover {
+            background: @light-grey;
+            font-weight: bold;
+        }
+    }
+
+    .size-select {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        top: 30px;
+        border: 1px solid @secondary;
+        .size-option {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 10px 0;
+            min-width: 150px;
+            transition: .5s;
+            border: 0px;
+            &:hover {
+                background: @light-grey;
+                font-weight: bold;
+            }
+        }
+    }
+    .color-select {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        top: 30px;
+        border: 1px solid @secondary;
+        .color-option {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 10px 0;
+            min-width: 150px;
+            transition: .5s;
+            border: 0px;
+            &:hover {
+                background: @light-grey;
+                font-weight: bold;
+            }
+        }
+    }
+
+
+    .input {
+        min-height: 200px;
+        min-width: 100px;
+        background: white;
+        border: 1px solid @primary;    
+        padding: 10px;
+        outline: none;
+    }
+
+    .hide-font {
+        animation: hide .3s;
+        animation-fill-mode: forwards;
+    }
+    .hide-size {
+        animation: hide .3s;
+        animation-fill-mode: forwards;
+    }
+    .hide-color {
+        animation: hide .3s;
+        animation-fill-mode: forwards;
+    }
+    .hide-link {
+        animation: hide .3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes hide {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+            z-index: -1;
+        }
+    }
+}
+
+

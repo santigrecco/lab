@@ -138,4 +138,43 @@
 
 }
 
+.modal-styles {
+    .modal.fade.in {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        transition: 0s !important;
+        .modal-dialog.modal-sm {
+            margin: 0px;
+            width: 30%;
+            opacity: 1;
+        }
+        .modal-header-custom {
+            width: 100%;
+            height: 10px;
+            .blue-gradient; 
+        }
+        .modal-content {
+            border-radius: 0px;
+            height: 200px;
+            .modal-body {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex: 1;
+        }
+    }
 
+    .modal.fade {
+        transition: 0s !important;
+        .modal-dialog.modal-sm {
+            opacity: 0;
+        }
+    }
+}

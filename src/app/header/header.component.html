@@ -13,7 +13,7 @@
             <li>
                 <a routerLink = "/labs" routerLinkActive = "active" class="btn">Labs</a>
             </li>
-            <li *ngIf ="rank !== 'manager'">
+            <li *ngIf ="userData.rank !== 'manager'">
                 <div dropdown container="body" class="dropdown">
                     <a [class.active]="routeActive('profile')" dropdownToggle class="btn dropdown-btn" >Profile</a>
                     <ul *dropdownMenu class="dropdown-menu" role="menu">
@@ -22,12 +22,12 @@
                     </ul>
                 </div>
             </li>
-            <ng-container *ngIf ="rank === 'manager'">
+            <ng-container *ngIf ="userData.rank === 'manager'">
                 <li  *ngFor="let link of links.manager">
                     <a routerLink = "/{{link.path}}" routerLinkActive = "active" class="btn">{{link.name}}</a>
                 </li>
             </ng-container>
-            <ng-container *ngIf ="rank === 'labOwner'">
+            <ng-container *ngIf ="userData.rank === 'labOwner'">
                 <li  *ngFor="let link of links.labOwner">
                     <a routerLink = "/{{link.path}}" routerLinkActive = "active" class="btn">{{link.name}}</a>
                 </li>

@@ -74,7 +74,6 @@ export class ForumComponent implements OnInit {
       },
     }
   ]  
-  public newTopicModal: Boolean = false;
   private userData = this.UserService.getUserData();
 
 
@@ -107,24 +106,21 @@ export class ForumComponent implements OnInit {
     
   }
 
-  newTopicModalToggle() {
-    this.newTopicModal = !this.newTopicModal;
-  }
+  
 
-  newTopic(title, message) {
+  newTopic(title, message, modal) {
     //regex for only whitespaces
     // if (title.replace(/\s/g, '') === '' || message.replace(/\s/g, '') === '') return null;
     const { username } = this.userData;
     const newTopic = {
-      name: title,
+      name: title.value,
       messages: [{author: username, message: message.value, likes:[], date: new Date()}],
       views:0,
       author: {username: username},
       show: false,
     }
     this.topics.push(newTopic);
-    this.newTopicModalToggle();
-    
+    modal.hide();    
   }
 
   deleteMessage(message, messages) {

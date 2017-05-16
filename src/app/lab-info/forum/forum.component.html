@@ -6,7 +6,7 @@
       <li>Views</li>
       <li>Author</li>
       <li class="important-heading new-topic">
-        <button class="btn btn-info" (click)="newTopicModalToggle()">
+        <button class="btn btn-info" (click)="newTopicModal.show()">
           New Topic
         </button>
       </li>
@@ -83,7 +83,7 @@
 </div>
 
 
-<div *ngIf="newTopicModal" class="new-topic-modal">
+<!--<div *ngIf="newTopicModal" class="new-topic-modal">
   <div class="content">
     <div class="blue-header"></div>
     <div class="message">
@@ -110,6 +110,34 @@
         </div>   
       </div>
     
-    
+    </div>
   </div>
-</div>
+</div>-->
+
+<div bsModal #newTopicModal="bs-modal" class="new-topic-modal modal fade" tabindex="-1000" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header-custom"></div>
+          <div class="modal-body">
+            <h4>New Topic</h4>
+            <div class="form">
+              <div class="form-row">
+                <label for="title" class="col-xs-12 col-md-6">User Name <i>*</i></label>
+                <input type="text" id="title" class="modal-user-input col-xs-12 col-md-6"  #title>
+              </div>
+              <div class="form-row">
+                <label for="message" class="col-xs-12 col-md-6">Message <i>*</i></label>
+                <textarea type="text" id="message" class="message col-xs-12 col-md-6" #message ></textarea>
+              </div>
+              <div class="errors form-row">
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel btn btn-default" (click)="newTopicModal.hide()">Cancel</button>
+              <button class="add btn btn-default" (click)="newTopic(title, message, newTopicModal)" autofocus>Add</button>
+            </div>
+          </div>
+      </div>
+   </div>
+</div>  
+

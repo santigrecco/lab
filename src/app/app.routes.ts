@@ -5,8 +5,8 @@ import { EditHomeComponent } from './edit-home/edit-home.component';
 import { LabsComponent } from './labs/labs.component';
 import { LoginComponent } from './login/login.component';
 import {  HomeComponent } from './home/home.component';
-import { MyProposalsComponent } from "app/my-proposals/my-proposals.component";
-
+import { MyProposalsComponent } from "./my-proposals/my-proposals.component";
+import { UsersComponent } from "./users/users.component";
 import { Routes } from '@angular/router';
 import { JoinUnsuscribeReqComponent } from "app/join-unsuscribe-req/join-unsuscribe-req.component";
 
@@ -55,5 +55,9 @@ export const APP_ROUTES:Routes = [
   {
     path: 'profile/join-unsubscribe-requests',
     component: JoinUnsuscribeReqComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
   }
 ]

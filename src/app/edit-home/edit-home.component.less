@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@import "../common";
+//common is imported after the component creation, that's why is repeated styles
+
 @smartphone: ~"screen and (max-width: 750px)";
 
 @primary: #003366;
@@ -138,4 +141,12 @@
         }
     }
     
+}
+
+.modal-styles;
+.modal-header-custom {
+    .red-gradient !important;
+}
+.modal-body {
+    color: darken(red, 5%) !important;
 }

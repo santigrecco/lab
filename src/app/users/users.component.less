@@ -1,0 +1,276 @@
+@import "../common";
+
+
+.users {
+    .view;
+    .title;
+    .modal-styles;
+    flex-wrap: wrap;
+    h3 {
+        margin-top: 40px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        .content {
+            display: flex;
+            background: white;
+            min-height: 400px;
+            padding-top: 20px;
+            flex-wrap: wrap;
+            .table-header {
+                display: flex;
+                align-items: center;
+                flex: 1;
+                width: 100%;
+                margin-bottom: 20px;
+                &>* {
+                    flex: 1;
+                }
+                .buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                    button {
+                        font-size: 1rem;
+                        padding: 5px 10px;
+                        &:nth-child(1) {
+                            margin-right: 5px;
+                        }
+
+                        &.add-user {
+                            .blue-gradient;
+                            color: white;
+                            border: 1px solid @primary;
+                            font-weight: bold;
+                            text-shadow: none;
+                        }
+                        &.upload {
+                            .gradient;
+                            color: @border-color;
+                            font-weight: bold;
+                            border: 1px solid @border-color;
+                        }
+                    }
+                }
+            }
+            .user-data {
+                width: 100%;
+                display: flex;
+                color: @primary;
+                font-weight: bold;
+                td {
+                    flex: 1;
+                    margin: 10px 0px;
+                }
+                .email {
+                    flex: 2;
+                }
+            }
+                
+        }
+    }
+    
+} 
+
+
+
+.modal-styles;
+
+.common-modal {
+    .modal-content {
+        height: auto !important;
+        max-width: 600px !important;
+        width: 100%;
+    }
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.add-user-modal {
+    .common-modal;
+    .modal-content {
+        height: auto !important;
+    }
+    h4, label {
+        color: @primary;
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+    button {
+        text-shadow: none;
+    }
+    .add {
+        .blue-gradient;
+        border: 1px solid @primary;
+        color: white;
+        text-shadow: none !important;
+    }
+    .cancel {
+        .gradient;
+        border: 1px solid @border-color;
+        color: @border-color;
+    }
+
+    .form {
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            label {
+                i {
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+            &.errors {
+                color: red;
+                padding-left: 50%;
+            }
+        }
+             
+    }
+    .buttons {
+        padding-left: 50%;
+        display: flex;
+        justify-content: space-between !important;
+        .cancel, .add {
+            width: ~"calc(50% - 10px)";
+            margin: 0px;
+        }
+
+    }
+}
+
+.upload-modal {
+    .common-modal;
+    h4, label {
+        color: @primary;
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+    button {
+        text-shadow: none;
+    }
+    .add {
+        .blue-gradient;
+        border: 1px solid @primary;
+        color: white;
+        text-shadow: none !important;
+    }
+    .cancel {
+        .gradient;
+        border: 1px solid @border-color;
+        color: @border-color;
+    }
+
+    .form {
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            label {
+                i {
+                    color: red;
+                    font-size: 16px;
+                }
+            }
+            &.errors {
+                color: red;
+                padding-left: 50%;
+            }
+        }
+             
+    }
+    .buttons {
+        padding-left: 50%;
+        display: flex;
+        justify-content: space-between !important;
+        .cancel, .add {
+            width: ~"calc(50% - 10px)";
+            margin: 0px;
+        }
+
+    }
+
+
+    .file-group {
+            display: flex;
+            padding: 0px;
+            height: 25px;
+            input {
+                width: 220px;
+                border:1px solid @border-color;
+                text-indent: 5px;
+            }
+            label {
+                margin: 0px;
+                .gradient;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 600;
+                width: 60px;
+                font-size: 9.3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 25px;
+                border: 1px solid;
+                border-left: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-color: @border-color;   
+                cursor: pointer;                
+                &:hover{
+                    background:#cccccc;
+                    color: @primary;
+                }
+            }
+        }
+}
+
+.empty-input-error {
+    border: 1px solid red;
+}
+
+@media @smartphone {
+    .users {
+        hr {
+            margin: initial 0px;
+        }
+        .container {
+            padding: 0px;
+            .content {
+                width: 100% !important;
+            }
+            .buttons {
+                width: 100%;
+                button {
+                    padding: 3px 7px;
+                }
+            }
+            
+        }
+    }
+    .add-user-modal {
+        font-size: 1em;
+        width: auto;
+        .buttons {
+            padding: 0px;
+        }
+        .form-row {
+            flex-direction: column;
+        }
+    }
+    .upload-modal {
+        font-size: 1em;
+        width: auto;
+        .buttons {
+            padding: 0px;
+        }
+        .form-row {
+            flex-direction: column;
+        }
+    }
+    
+}

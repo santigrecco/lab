@@ -1,0 +1,48 @@
+
+
+<div class="text-editor" #editor>
+  <div class="buttons" [class.hide]="windowWidth < 500">
+    <button class="font btn btn-default" #fontBtn (click)="font()" (focusout)="fontBlur()">A <i class="caret"></i></button>
+    <button class="bold btn btn-default" #boldInput [ngClass]="{'active-tag': boldToggle}" (click)="bold(fontBtn)">B</button>
+    <button class="strikethrough btn btn-default" [ngClass]="{'active-tag': strikethroughToggle}"(click)="strikethrough()">S</button>
+    <button class="size btn btn-default" #sizeBtn (click)="size(sizeBtn)" (focusout)="sizeBlur()">T <i class="glyphicon glyphicon-resize-vertical"></i></button>
+    <button class="italic btn btn-default" [ngClass]="{'active-tag': italicToggle}" (click)="italic()">I</button>
+    <button class="underline btn btn-default" [ngClass]="{'active-tag': underlineToggle}" (click)="underline()">U</button>
+    <button class="ulist btn btn-default" [ngClass]="{'active-tag': unorderedlistToggle}" (click)="unorderedList()"><i class="glyphicon glyphicon-list"></i></button>
+    <button class="olist btn btn-default" [ngClass]="{'active-tag': orderedlistToggle}" (click)="orderedList()" ><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+    <button class="indent btn btn-default" (click)="indent()" ><i class="glyphicon glyphicon-indent-left" aria-hidden="true"></i></button>
+    <button class="outdent btn btn-default" (click)="outdent()" ><i class="glyphicon glyphicon-indent-right" aria-hidden="true"></i></button>
+    <button class="alignleft btn btn-default" [ngClass]="{'active-tag': justifyLeftToggle}"(click)="alignLeft()" ><i class="glyphicon glyphicon-align-left" aria-hidden="true"></i></button>
+    <button class="aligncenter btn btn-default" [ngClass]="{'active-tag': justifyCenterToggle}" (click)="alignCenter()" ><i class="glyphicon glyphicon-align-center" aria-hidden="true"></i></button>
+    <button class="alignright btn btn-default" [ngClass]="{'active-tag': justifyRightToggle}" (click)="alignRight()" ><i class="glyphicon glyphicon-align-right" aria-hidden="true"></i></button>
+    <button class="color btn btn-default" #colorBtn (click)="color()" (focusout)="colorBlur()"><i class="glyphicon glyphicon-tint" aria-hidden="true"></i></button>
+    <button class="color btn btn-default" #colorBtn (click)="link()" ><i class="glyphicon glyphicon-link" aria-hidden="true"></i></button>
+  </div>
+  <div class="font-select" [class.hide-font]="fontToggle">
+    <button class="font-option" #arial (click)="changeFont('Arial')">Arial</button>
+    <button class="font-option" #Impact (click)="changeFont('Impact')">Impact</button>
+    <button class="font-option" #Verdana (click)="changeFont('Verdana')">Verdana</button>
+    <button class="font-option" #Tahoma (click)="changeFont('Tahoma')">Tahoma</button>
+    <button class="font-option" #Times (click)="changeFont('Times New Roman')">Times New Roman</button>
+  </div>
+  <div class="size-select" [class.hide-size]="sizeToggle" [style.left.px]="sizeBtnPosition">
+    <button class="size-option" (click)="changeSize(1)">X-Small</button>
+    <button class="size-option" (click)="changeSize(2)">Small</button>
+    <button class="size-option" (click)="changeSize(3)">Medium</button>
+    <button class="size-option" (click)="changeSize(4)">Large</button>
+    <button class="size-option" (click)="changeSize(5)">Larger</button>
+    <button class="size-option" (click)="changeSize(6)">X-Large</button>
+  </div>
+  <div class="color-select" [class.hide-color]="colorToggle" [style.right.px]="0">
+    <button class="color-option" (click)="changeColor('333333')">Initial</button>
+    <button class="color-option" (click)="changeColor('red')" [style.color]="'red'">Red</button>
+    <button class="color-option" (click)="changeColor('blue')" [style.color]="'blue'">Blue</button>
+    <button class="color-option" (click)="changeColor('green')" [style.color]="'green'">Green</button>
+  </div>
+
+
+
+  <div class="input" #input contenteditable="true" (input)="returnText()" >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum vel eligendi cumque, numquam voluptas adipisci modi! Asperiores illum nobis culpa, molestias, iure quaerat tempora, dicta ducimus quos laudantium non suscipit?
+  </div>
+</div>
