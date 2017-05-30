@@ -89,7 +89,7 @@ import { UsersComponent } from './users/users.component';
   providers: [
     {provide: 'UserService' , useClass: UserService},
     {provide: 'LabService' , useClass: LabService}
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

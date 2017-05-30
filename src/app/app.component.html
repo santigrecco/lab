@@ -1,11 +1,12 @@
 <app-header *ngIf="header()"></app-header>
-<router-outlet class="container"></router-outlet>
+
+<router-outlet class="container" #container></router-outlet>
 
 <footer>
     <img src="assets/Copyright icon.svg" alt="©"> Created by Globant & Deloitte
 </footer>
 
-<app-bottom-fog></app-bottom-fog>
+<app-bottom-fog ></app-bottom-fog>
 <!--<div class="container">
 
   <app-propose-lab></app-propose-lab>

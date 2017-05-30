@@ -13,7 +13,7 @@ export class UserService{
 
   getUserData() {
     // return this.userData;
-    return this.fakeUsers[1];
+    return this.fakeUsers[0];
   }
 
   authentication(username, password) {

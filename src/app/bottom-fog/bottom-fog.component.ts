@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
@@ -18,6 +18,8 @@ export class BottomFogComponent implements OnInit {
       this.scrolled = window.scrollY;
       this.windowHeight = window.innerHeight;
     })
+    
+
   }
 
   ngOnInit() {
